@@ -107,6 +107,7 @@ class Organizer extends User
     while($statement->fetch()){
       $organizers[] = new Organizer($username);
     }
+    $connection->close();
     return $organizers;
   }
 
