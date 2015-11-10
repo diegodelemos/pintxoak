@@ -43,46 +43,16 @@ class Organizer extends User
     }
   }
 
-  // Deletes the database entry for this object id.
-  function delete()
+  // Updates the database entry for this object id.
+  function update()
   {
     if(!$this->exists())
       throw new Exception("User doesn't exist");
     $connection = Relation::getConnection();
     $connection->begin_transaction();
-    $sentence = "DELETE FROM ORGANIZER WHERE o_username = ?";
-    $statement = $connection->prepare($sentence);
-    $statement->bind_param("s",$this->username);
-    $statement->execute();
-    if($statement->affected_rows == 1){
-      $sentence = "DELETE FROM USER WHERE username = ?";
-      $statement = $connection->prepare($sentence);
-      $statement->bind_param("s",$this->username);
-      $statement->execute();
-      if($statement->affected_rows == 1){
-        $connection->commit();
-        $connection->close();
-      }
-      else{
-        $connection->rollback();
-        $connection->close();
-        throw new Exception("User could not be deleted.");
-      }
-    }
-    else{
-      $connection->rollback();
-      $connection->close();
-      throw new Exception("User could not be deleted.");
-    }
-
-
-
-  }
-
-  // Updates the database entry for this object id.
-  function update()
-  {
-    // TODO ask Analia on update cascade
+    $this->userUpdate($connection);
+    $connection->commit();
+    $connection->close();
   }
 
   // Populates the object with the data from the database

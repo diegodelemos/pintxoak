@@ -50,46 +50,27 @@ class Judge extends User
     }
   }
 
-  // Deletes the database entry for this object id.
-  function delete()
+  // Updates the database entry for this object id.
+  function update()
   {
     if(!$this->exists())
       throw new Exception("User doesn't exist");
     $connection = Relation::getConnection();
     $connection->begin_transaction();
-    $sentence = "DELETE FROM JUDGE WHERE j_username = ?";
+    $this->userUpdate($connection);
+    $sentence = "UPDATE JUDGE SET j_name = ?, j_profession = ?, j_photo = ?
+      WHERE j_username = ?";
     $statement = $connection->prepare($sentence);
-    $statement->bind_param("s",$this->username);
+    $statement->bind_param("ssss",$this->name,$this->profession,$this->photo,
+      $this->username);
     $statement->execute();
-    if($statement->affected_rows == 1){
-      $sentence = "DELETE FROM USER WHERE username = ?";
-      $statement = $connection->prepare($sentence);
-      $statement->bind_param("s",$this->username);
-      $statement->execute();
-      if($statement->affected_rows == 1){
-        $connection->commit();
-        $connection->close();
-      }
-      else{
-        $connection->rollback();
-        $connection->close();
-        throw new Exception("User could not be deleted.");
-      }
-    }
-    else{
+    if($statement->affected_rows != 1){
       $connection->rollback();
       $connection->close();
-      throw new Exception("User could not be deleted.");
+      throw new Exception("User could not be updated.");
     }
-
-
-
-  }
-
-  // Updates the database entry for this object id.
-  function update()
-  {
-    // TODO ask Analia on update cascade
+    $connection->commit();
+    $connection->close();
   }
 
   // Populates the object with the data from the database
@@ -139,4 +120,27 @@ class Judge extends User
     return ($exists==1);
   }
 
+  function getName(){
+    return $this->name;
+  }
+
+  function setName($name){
+    $this->name = $name;
+  }
+
+  function getProfession(){
+    return $this->profession;
+  }
+
+  function setProfession($profession){
+    $this->profession = $profession;
+  }
+
+  function getPhoto(){
+    return $this->photo;
+  }
+
+  function setPhoto($photo){
+    $this->photo = $photo;
+  }
 }
