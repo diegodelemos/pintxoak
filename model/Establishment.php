@@ -4,10 +4,16 @@ include_once "User.php";
 
 class Establishment extends User
 {
+  private $address;
+  private $name;
+  private $photo;
 
-  function __construct($username, $password = null)
+  function __construct($username, $address, $name, $photo, $password = null)
   {
     parent::__construct($username, $password);
+    $this->address = $address;
+    $this->name = $name;
+    $this->photo = $photo;
   }
 
   // Inserts the object data in the database.
@@ -22,9 +28,10 @@ class Establishment extends User
     $statement->bind_param("ss",$this->username,$this->password);
     $statement->execute();
     if($statement->affected_rows == 1){
-      $sentence = "INSERT INTO ESTABLISHMENT VALUES (?)";
+      $sentence = "INSERT INTO ESTABLISHMENT VALUES (?,?,?,?)";
       $statement = $connection->prepare($sentence);
-      $statement->bind_param("s",$this->username);
+      $statement->bind_param("s",$this->username, $this->address, $this->name,
+        $this->photo);
       $statement->execute();
       if($statement->affected_rows == 1){
         $connection->commit();
@@ -46,7 +53,24 @@ class Establishment extends User
   // Updates the database entry for this object id.
   function update()
   {
-    // TODO ask Analia on update cascade
+    if(!$this->exists())
+      throw new Exception("User doesn't exist");
+    $connection = Relation::getConnection();
+    $connection->begin_transaction();
+    $this->userUpdate($connection);
+    $sentence = "UPDATE ESTABLISHMENT SET e_name = ?, address = ?, e_photo = ?
+      WHERE e_username = ?";
+    $statement = $connection->prepare($sentence);
+    $statement->bind_param("ssss",$this->name,$this->address,$this->photo,
+      $this->username);
+    $statement->execute();
+    if($statement->affected_rows != 1){
+      $connection->rollback();
+      $connection->close();
+      throw new Exception("User could not be updated.");
+    }
+    $connection->commit();
+    $connection->close();
   }
 
   // Populates the object with the data from the database
@@ -55,6 +79,14 @@ class Establishment extends User
   {
     if(!$this->exists())
       throw new Exception("User doesn't exist");
+    $connection = Relation::getConnection();
+    $connection->begin_transaction();
+    $sentence = "SELECT * FROM ESTABLISHMENT WHERE e_username = ?";
+    $statement = $connection->prepare($sentence);
+    $statement->execute();
+    $statement->bind_result($username,$this->address,$this->name,$this->photo);
+    $statement->fetch();
+    $connection->close();
 
   }
 
@@ -66,10 +98,10 @@ class Establishment extends User
     $sentence = "SELECT * FROM ESTABLISMENT";
     $statement = $connection->prepare($sentence);
     $statement->execute();
-    $statement->bind_result($username);
+    $statement->bind_result($username,$address,$name,$photo);
     $organizers=array();
     while($statement->fetch()){
-      $organizers[] = new Establishment($username);
+      $organizers[] = new Establishment($username,$address,$name,$photo);
     }
     $connection->close();
     return $organizers;
