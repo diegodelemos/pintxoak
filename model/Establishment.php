@@ -98,12 +98,12 @@ class Establishment extends User
     $statement->bind_param("s",$this->username);
     $statement->execute();
     $statement->bind_result($username,$address,$name,$photo);
-    $organizers=array();
+    $establishments=array();
     while($statement->fetch()){
-      $organizers[] = new Establishment($username,$address,$name,$photo);
+      $establishments[] = new Establishment($username,$address,$name,$photo);
     }
     $connection->close();
-    return $organizers;
+    return $establishments;
   }
 
   // Check if this object exists in the DB.

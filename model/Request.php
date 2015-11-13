@@ -1,6 +1,7 @@
 <?php
 
 include_once "Relation.php";
+include_once "Organizer.php";
 
 class Ingredient extends Relation {
 
@@ -88,12 +89,13 @@ class Ingredient extends Relation {
     if(!$this->exists())
       throw new Exception("Request doesn't exist");
     $connection = Relation::getConnection();
-    $sentence = "SELECT * FROM REQUEST WHERE i_name = ?";
+    $sentence = "SELECT * FROM REQUEST WHERE r_id = ?";
     $statement = $connection->prepare($sentence);
-    $statement->bind_param("s",$this->name);
+    $statement->bind_param("i",$this->id);
     $statement->execute();
-    $statement->bind_result($name,$this->allergenic);
+    $statement->bind_result($nothing,$organizer,$email,$password,$data,$state);
     $statement->fetch();
+    $this->organizer = new Organizer($organizer);
     $connection->close();
 
   }
@@ -102,25 +104,26 @@ class Ingredient extends Relation {
   static function getAll()
   {
     $connection = Relation::getConnection();
-    $sentence = "SELECT * FROM INGREDIENT";
+    $sentence = "SELECT * FROM REQUEST";
     $statement = $connection->prepare($sentence);
     $statement->execute();
-    $statement->bind_result($name,$allergenic);
-    $organizers=array();
+    $statement->bind_result($id,$organizer,$email,$password,$data,$state);
+    $requests=array();
     while($statement->fetch()){
-      $organizers[] = new Ingredient($name,$allergenic);
+      $requests[] = new Ingredient($id,new Organizer($organizer),$email,
+        $password,$data,$state);
     }
     $connection->close();
-    return $organizers;
+    return $requests;
   }
 
   // Check if this object exists in the DB.
   function exists()
   {
     $connection = Relation::getConnection();
-    $sentence = "SELECT count(*) FROM INGREDIENT WHERE i_name = ?";
+    $sentence = "SELECT count(*) FROM REQUEST WHERE r_id = ?";
     $statement = $connection->prepare($sentence);
-    $statement->bind_param("s",$this->name);
+    $statement->bind_param("i",$this->id);
     $statement->execute();
     $statement->bind_result($exists);
     $statement->fetch();
@@ -128,20 +131,52 @@ class Ingredient extends Relation {
     return ($exists==1);
   }
 
-  function getName(){
-    return $this->name;
+  function getId(){
+    return $this->id;
   }
 
-  function setName($name){
-    $this->newName = $name;
+  function setId($id){
+    $this->id = $id;
   }
 
-  function getAllergenic(){
-    return $this->allergenic;
+  function getOrganizer(){
+    return $this->organizer;
   }
 
-  function setAllergenic($allergenic){
-    $this->allergenic = $allergenic;
+  function setOrganizer($organizer){
+    $this->organizer = $organizer;
+  }
+
+  function getEmail(){
+    return $this->email;
+  }
+
+  function setEmail($email){
+    $this->email = $email;
+  }
+
+  function getPassword(){
+    return $this->password;
+  }
+
+  function setPassword($password){
+    $this->password = $password;
+  }
+
+  function getData(){
+    return $this->data;
+  }
+
+  function setData($data){
+    $this->data = $data;
+  }
+
+  function getState(){
+    return $this->state;
+  }
+
+  function setState($state){
+    $this->state = $state;
   }
 
 }

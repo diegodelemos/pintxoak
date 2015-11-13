@@ -96,12 +96,12 @@ class Ingredient extends Relation {
     $statement = $connection->prepare($sentence);
     $statement->execute();
     $statement->bind_result($name,$allergenic);
-    $organizers=array();
+    $ingredients=array();
     while($statement->fetch()){
-      $organizers[] = new Ingredient($name,$allergenic);
+      $ingredients[] = new Ingredient($name,$allergenic);
     }
     $connection->close();
-    return $organizers;
+    return $ingredients;
   }
 
   // Check if this object exists in the DB.
