@@ -25,11 +25,11 @@ class Pincho extends Relation {
 	function insert() {
 		if($this->exists())
 			throw new Exception("Pincho already exists");
-		if(existEstablishment()) {
+		if(establishment.exists()) {
 			$connection = Relation::getConnection();
 			$sentence = "INSERT INTO PINCHO VALUES (?, ?, ?, ?, ?, ?)";
 			$statement = $connection->prepare($sentence);
-			$statement->bind_param("isssdi",$this->id,$this->establishment,$this->name,
+			$statement->bind_param("isssdi",$this->id,$this->establishment->getUsername(),$this->name,
 				$this->photo,$this->price,$this->counter);
 			$statement->execute();
 			if($statement->affected_rows != 1){
@@ -67,7 +67,7 @@ class Pincho extends Relation {
 		$sentence = "UPDATE PINCHO SET e_username = ?, p_name = ?, p_photo = ?,
 			p_price = ?, counter = ? WHERE e_username = ?";
 		$statement = $connection->prepare($sentence);
-		$statement->bind_param("sssdi",$this->establishment,$this->name,$this->photo,
+		$statement->bind_param("sssdi",$this->establishment->getUsername(),$this->name,$this->photo,
 		$this->price, $this->counter);
 		$statement->execute();
 		if($statement->affected_rows != 1){
@@ -87,8 +87,9 @@ class Pincho extends Relation {
 		$statement = $connection->prepare($sentence);
 		$statement->bind_param("i",$this->id);
 		$statement->execute();
-		$statement->bind_result($this->id,$this->establishment
+		$statement->bind_result($this->id,$establishmentReference
 			,$this->name,$this->photo,$this->price,$this->counter);
+		$this->establishment = new Establishment($establishmentReference,null,null,null);;
 		$statement->fetch();
 		$connection->close();
 	}
@@ -100,9 +101,10 @@ class Pincho extends Relation {
 		$sentence = "SELECT * FROM PINCHO";
 		$statement = $connection->prepare($sentence);
 		$statement->execute();
-		$statement->bind_result($id,$establishment,$name,$photo,$price,$counter);
+		$statement->bind_result($id,$establishmentReference,$name,$photo,$price,$counter);
 		$pinchos=array();
 		while($statement->fetch()){
+			$establishment = new Establishment($establishmentReference,null,null,null);
 			$pinchos[] = new Pincho($id,$establishment,$name,$photo,$price,$counter);
 		}
 		$connection->close();
@@ -119,10 +121,5 @@ class Pincho extends Relation {
 		$statement->fetch();
 		$connection->close();
 		return ($exists==1);
-	}
-
-	private function existEstablishment(establishment) {
-		e = new Establishment(establishment, null, null, null);
-		return e.exists();
 	}
 }
