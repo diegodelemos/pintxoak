@@ -19,17 +19,14 @@ class Ingredient extends Relation {
     if($this->exists())
       throw new Exception("Ingredient already exists");
     $connection = Relation::getConnection();
-    $connection->begin_transaction();
     $sentence = "INSERT INTO INGREDIENT VALUES (?, ?)";
     $statement = $connection->prepare($sentence);
     $statement->bind_param("si",$this->name,$this->allergenic);
     $statement->execute();
     if($statement->affected_rows == 1){
-      $connection->commit();
       $connection->close();
     }
     else{
-      $connection->rollback();
       $connection->close();
       throw new Exception("Ingredient could not be created.");
     }
