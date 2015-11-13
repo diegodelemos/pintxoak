@@ -68,7 +68,6 @@ class Organizer extends User
   static function getAll()
   {
     $connection = Relation::getConnection();
-    $connection->begin_transaction();
     $sentence = "SELECT * FROM ORGANIZER";
     $statement = $connection->prepare($sentence);
     $statement->execute();
