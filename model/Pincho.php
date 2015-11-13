@@ -1,7 +1,7 @@
 <?php
 
 include_once "Relation.php";
-incluse_once "Establishment.php";
+include_once "Establishment.php";
 
 class Pincho extends Relation {
 
@@ -90,8 +90,9 @@ class Pincho extends Relation {
 		$statement->execute();
 		$statement->bind_result($this->id,$establishmentReference
 			,$this->name,$this->photo,$this->price,$this->counter);
-		$this->establishment = new Establishment($establishmentReference,null,null,null);;
+
 		$statement->fetch();
+		$this->establishment = new Establishment($establishmentReference,null,null,null);
 		$connection->close();
 	}
 	
@@ -123,4 +124,55 @@ class Pincho extends Relation {
 		$connection->close();
 		return ($exists==1);
 	}
+
+	function getId(){
+		return $this->id;
+	}
+
+	function setId($id){
+		$this->id = $id;
+	}
+
+	function getName(){
+		return $this->name;
+	}
+
+	function setName($name){
+		$this->name = $name;
+	}
+
+
+	function getEstablishment(){
+		return $this->establishment;
+	}
+
+	function setEstablishment($establishment){
+		$this->establishment = $establishment;
+	}
+
+	function getPhoto(){
+		return $this->photo;
+	}
+
+	function setPhoto($photo){
+		$this->photo = $photo;
+	}
+
+	function getPrice(){
+		return $this->price;
+	}
+
+	function setPrice($price){
+		$this->Price = $price;
+	}
+
+	function getCounter(){
+		return $this->counter;
+	}
+
+	function setCounter($counter){
+		$this->counter = $counter;
+	}
+
+
 }
