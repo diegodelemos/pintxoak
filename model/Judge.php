@@ -80,9 +80,9 @@ class Judge extends User
     if(!$this->exists())
       throw new Exception("User doesn't exist");
     $connection = Relation::getConnection();
-    $connection->begin_transaction();
     $sentence = "SELECT * FROM JUDGE WHERE j_username = ?";
     $statement = $connection->prepare($sentence);
+    $statement->bind_param("s",$this->username);
     $statement->execute();
     $statement->bind_result($username,$this->name,$this->profession,$this->photo);
     $statement->fetch();
@@ -93,7 +93,6 @@ class Judge extends User
   static function getAll()
   {
     $connection = Relation::getConnection();
-    $connection->begin_transaction();
     $sentence = "SELECT * FROM JUDGE";
     $statement = $connection->prepare($sentence);
     $statement->execute();

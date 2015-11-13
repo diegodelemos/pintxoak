@@ -80,7 +80,6 @@ class Establishment extends User
     if(!$this->exists())
       throw new Exception("User doesn't exist");
     $connection = Relation::getConnection();
-    $connection->begin_transaction();
     $sentence = "SELECT * FROM ESTABLISHMENT WHERE e_username = ?";
     $statement = $connection->prepare($sentence);
     $statement->execute();
@@ -94,9 +93,9 @@ class Establishment extends User
   static function getAll()
   {
     $connection = Relation::getConnection();
-    $connection->begin_transaction();
     $sentence = "SELECT * FROM ESTABLISMENT";
     $statement = $connection->prepare($sentence);
+    $statement->bind_param("s",$this->username);
     $statement->execute();
     $statement->bind_result($username,$address,$name,$photo);
     $organizers=array();
@@ -119,6 +118,30 @@ class Establishment extends User
     $statement->fetch();
     $connection->close();
     return ($exists==1);
+  }
+
+  function getAddress(){
+    return $this->address;
+  }
+
+  function setAddress($address){
+    $this->address = $address;
+  }
+
+  function getName(){
+    return $this->name;
+  }
+
+  function setName($name){
+    $this->name = $name;
+  }
+
+  function getPhoto(){
+    return $this->photo;
+  }
+
+  function setPhoto($photo){
+    $this->photo = $photo;
   }
 
 }
