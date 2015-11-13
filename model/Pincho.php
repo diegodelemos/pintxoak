@@ -27,17 +27,18 @@ class Pincho extends Relation {
 			throw new Exception("Pincho already exists");
 		if(establishment.exists()) {
 			$connection = Relation::getConnection();
-			$sentence = "INSERT INTO PINCHO VALUES (?, ?, ?, ?, ?, ?)";
+			$sentence = "INSERT INTO PINCHO (e_username,p_name,p_photo,p_price,counter) 
+				VALUES (?, ?, ?, ?, ?)";
 			$statement = $connection->prepare($sentence);
-			$statement->bind_param("isssdi",$this->id,$this->establishment->getUsername(),$this->name,
+			$statement->bind_param("sssdi",$this->establishment->getUsername(),$this->name,
 				$this->photo,$this->price,$this->counter);
 			$statement->execute();
 			if($statement->affected_rows != 1){
-				throw new Exception("User could not be created.");
+				throw new Exception("Pincho could not be created.");
 			}
 			$connection->close();
 		} else {
-			throw new Exception("User could not be created.");	
+			throw new Exception("Pincho could not be created.");	
 		}
 		
 	}
