@@ -117,7 +117,7 @@ class Pincho extends Relation {
 		$connection = Relation::getConnection();
 		$sentence = "SELECT count(*) FROM PINCHO WHERE p_id = ?";
 		$statement = $connection->prepare($sentence);
-		$statement->bind_param("s",$this->id);
+		$statement->bind_param("i",$this->id);
 		$statement->execute();
 		$statement->bind_result($exists);
 		$statement->fetch();
@@ -163,7 +163,7 @@ class Pincho extends Relation {
 	}
 
 	function setPrice($price){
-		$this->Price = $price;
+		$this->price = $price;
 	}
 
 	function getCounter(){
