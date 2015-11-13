@@ -97,12 +97,12 @@ class Judge extends User
     $statement = $connection->prepare($sentence);
     $statement->execute();
     $statement->bind_result($username,$name,$profession,$photo);
-    $organizers=array();
+    $judges=array();
     while($statement->fetch()){
-      $organizers[] = new Judge($username,$name,$profession,$photo);
+      $judges[] = new Judge($username,$name,$profession,$photo);
     }
     $connection->close();
-    return $organizers;
+    return $judges;
   }
 
   // Check if this object exists in the DB.
