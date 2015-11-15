@@ -8,6 +8,7 @@
   class Session {
     private $logged;
     private $data;
+    private $flash = array();
 
     function __construct(){
       session_start();
@@ -24,6 +25,10 @@
           $_SESSION["lang"] = $this->data["lang"];
         }
       }
+      if(isset($_SESSION["flash"]))
+        $this->flash = $_SESSION["flash"];
+      else
+        $_SESSION["flash"] = array();
     }
     public function login($username,$password,$userLang = "en"){
       $user = new Organizer($username,null);
@@ -99,6 +104,19 @@
 
     public function getData() {
       return $this->data;
+    }
+
+    // types are warning, success and error
+    public function putFlashMessage($type, $message){
+      array_push($this->flash, array("type" => $type, "message" => $message));
+      array_push($_SESSION['flash'], array("type" => $type, "message" => $message));
+    }
+
+    public function getFlashMessages(){
+      $flash = $this->flash;
+      $this->flash = array();
+      $_SESSION["flash"] = array();
+      return $flash;
     }
 
   }
