@@ -39,11 +39,11 @@ class Request extends Relation {
     if($this->exists())
       throw new Exception("Request already exists");
     $connection = Relation::getConnection();
-    $sentence = "INSERT INTO REQUEST (o_username,adress,email,password,
+    $sentence = "INSERT INTO REQUEST (address,email,password,
       e_photo,p_name,p_photo,p_price,ingredients,state) VALUES (?, ?, ?, ?, ?,
-      ?, ?, ?, ?, ?)";
+      ?, ?, ?, ?)";
     $statement = $connection->prepare($sentence);
-    $statement->bind_param("sssssssdsi",$this->organizer->getUsername(),
+    $statement->bind_param("ssssssdsi",
       $this->address,$this->email,$this->password,$this->ePhoto,
       $this->pName,$this->pPhoto,$this->pPrice,$this->ingredients,$this->state);
     $statement->execute();
