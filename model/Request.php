@@ -3,23 +3,34 @@
 include_once "Relation.php";
 include_once "Organizer.php";
 
-class Ingredient extends Relation {
+class Request extends Relation {
 
   private $id;
   // organizer is an object
   private $organizer;
   private $email;
   private $password;
-  private $data;
   private $state;
+  private $address;
+  private $ePhoto;
+  private $pName;
+  private $pPhoto;
+  private $pPrice;
+  private $ingredients;
 
-  function __construct($id,$organizer,$email,$password,$data,$state){
+  function __construct($id,$organizer,$address,$email,$password,$ePhoto,
+      $pName,$pPhoto,$pPrice,$ingredients,$state){
     $this->id = $id;
     $this->organizer = $organizer;
     $this->email = $email;
     $this->password = $password;
-    $this->data = $data;
     $this->state = $state;
+    $this->address = $address;
+    $this->ePhoto = $ePhoto;
+    $this->pName = $pName;
+    $this->pPhoto = $pPhoto;
+    $this->pPrice = $pPrice;
+    $this->ingredients = $ingredients;
   }
 
   // Inserts the object data in the database.
@@ -28,11 +39,13 @@ class Ingredient extends Relation {
     if($this->exists())
       throw new Exception("Request already exists");
     $connection = Relation::getConnection();
-    $sentence = "INSERT INTO REQUEST (o_username,email,password,data,state)
-      VALUES (?, ?, ?, ?, ?)";
+    $sentence = "INSERT INTO REQUEST (o_username,adress,email,password,
+      e_photo,p_name,p_photo,p_price,ingredients,state) VALUES (?, ?, ?, ?, ?,
+      ?, ?, ?, ?, ?)";
     $statement = $connection->prepare($sentence);
-    $statement->bind_param("ssssi",$this->organizer->getUsername(),
-      $this->email,$this->password,$this->data,$this->state);
+    $statement->bind_param("sssssssdsi",$this->organizer->getUsername(),
+      $this->address,$this->email,$this->password,$this->ePhoto,
+      $this->pName,$this->pPhoto,$this->pPrice,$this->ingredients,$this->state);
     $statement->execute();
     if($statement->affected_rows == 1){
       $connection->close();
@@ -68,17 +81,18 @@ class Ingredient extends Relation {
     if(!$this->exists())
       throw new Exception("Request doesn't exist");
     $connection = Relation::getConnection();
-    $sentence = "UPDATE REQUEST SET o_username = ?, email = ?, password = ?,
-      data = ?, state = ? WHERE r_id = ?";
+    $sentence = "UPDATE REQUEST SET o_username = ?, address = ?, email = ?,
+      password = ?, e_photo = ?, p_name = ?, p_photo = ?, p_price = ?,
+      ingredients = ?, state = ? WHERE r_id = ?";
     $statement = $connection->prepare($sentence);
-    $statement->bind_param("ssssii",$this->organizer->getName(),$this->email,
-      $this->password,$this->data,$this->state,$this->id);
+    $statement->bind_param("ssssii",$this->organizer->getName(),$this->address,
+      $this->email,$this->password,$this->e_photo,$this->pName,$this->pPhoto,
+      $this->pPrice,$this->ingredients,$this->state,$this->id);
     $statement->execute();
     if($statement->affected_rows != 1){
       $connection->close();
       throw new Exception("Request could not be updated.");
     }
-    $this->name = $this->newName;
     $connection->close();
   }
 
@@ -93,7 +107,9 @@ class Ingredient extends Relation {
     $statement = $connection->prepare($sentence);
     $statement->bind_param("i",$this->id);
     $statement->execute();
-    $statement->bind_result($nothing,$organizer,$email,$password,$data,$state);
+    $statement->bind_result($nothing,$this->organizer,$this->address,
+      $this->email,$this->password,$this->ePhoto,$this->pName,
+      $this->pPhoto,$this->pPrice,$this->state);
     $statement->fetch();
     $this->organizer = new Organizer($organizer);
     $connection->close();
@@ -107,11 +123,12 @@ class Ingredient extends Relation {
     $sentence = "SELECT * FROM REQUEST";
     $statement = $connection->prepare($sentence);
     $statement->execute();
-    $statement->bind_result($id,$organizer,$email,$password,$data,$state);
+    $statement->bind_result($id,$organizer,$address,$email,$password,$ePhoto,$pName,
+      $pPhoto,$pPrice,$ingredients,$state);
     $requests=array();
     while($statement->fetch()){
-      $requests[] = new Ingredient($id,new Organizer($organizer),$email,
-        $password,$data,$state);
+      $requests[] = new Request($id,new Organizer($organizer),$address,$email,
+        $password,$ePhoto,$pName,$pPhoto,$pPrice,$ingredients,$state);
     }
     $connection->close();
     return $requests;
@@ -147,6 +164,14 @@ class Ingredient extends Relation {
     $this->organizer = $organizer;
   }
 
+  function getAddress(){
+    return $this->address;
+  }
+
+  function setAddress($address){
+    $this->address = $address;
+  }
+
   function getEmail(){
     return $this->email;
   }
@@ -162,13 +187,45 @@ class Ingredient extends Relation {
   function setPassword($password){
     $this->password = $password;
   }
-
-  function getData(){
-    return $this->data;
+  
+  function getEPhoto(){
+    return $this->ePhoto;
   }
 
-  function setData($data){
-    $this->data = $data;
+  function setEPhoto($ePhoto){
+    $this->ePhoto = $ePhoto;
+  }
+
+  function getPName(){
+    return $this->pName;
+  }
+
+  function setPName($pName){
+    $this->pName = $pName;
+  }
+
+  function getPPhoto(){
+    return $this->pPhoto;
+  }
+
+  function setPPhoto($pPhoto){
+    $this->pPhoto = $pPhoto;
+  }
+
+  function getPPrice(){
+    return $this->pPrice;
+  }
+
+  function setPPrice($pPrice){
+    $this->pPrice = $pPrice;
+  }
+
+  function getIngredients(){
+    return $this->ingredients;
+  }
+
+  function setIngredients($ingredients){
+    $this->ingredients = $ingredients;
   }
 
   function getState(){
