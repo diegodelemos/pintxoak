@@ -15,7 +15,16 @@
       'Pincho photo' => 'Pincho photo',
       'Repeat your password' => 'Repeat your password',
       'Pincho price' => 'Pincho price',
-      'Pincho ingredients' => 'Pincho ingredients'
+      'Pincho ingredients' => 'Pincho ingredients',
+      'Gastromap' => 'Gastromap',
+      'Popular vote' => 'Popular vote',
+      'Requests' => 'Requests',
+      'Edit site' => 'Edit site',
+      'Sign out' => 'Sign out',
+      'Evaluate pinchos' => 'Evaluate pinchos',
+      'Profile' => 'Profile',
+      'Codes' => 'Codes',
+      'Follow us' => 'Follow us'
     ),
     'es' => array(
       'Pintxoak sign in' => 'Ingreso Pintxoak',
@@ -32,6 +41,15 @@
       'Pincho photo' => 'Pincho photo',
       'Repeat your password' => 'Repite tu contraseña',
       'Pincho price' => 'Precio del pincho',
-      'Pincho ingredients' => 'Ingredientes del pincho'
+      'Pincho ingredients' => 'Ingredientes del pincho',
+      'Gastromap' => 'Gastromapa',
+      'Popular vote' => 'Voto popular',
+      'Requests' => 'Requests',
+      'Edit site' => 'Edita sitio',
+      'Sign out' => 'Cerrar sesión',
+      'Evaluate pinchos' => 'Evaluar pinchos',
+      'Profile' => 'Perfil',
+      'Codes' => 'Códigos',
+      'Follow us' => 'Síguenos'
     )
   );

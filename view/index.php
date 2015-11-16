@@ -1,3 +1,11 @@
+<?php
+  include_once "../core/Session.php";
+  include_once "../core/Lang.php";
+  $session = new Session();
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +17,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Business Frontpage - Start Bootstrap Template</title>
+    <title>Pintxoak</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -33,20 +41,59 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Start Bootstrap</a>
+                <a class="navbar-brand" href="#">Pintxoak</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
+                  <?php
+                    if(!$session->isLogged()) { ?>
                     <li>
-                        <a href="#">About</a>
+                        <a href="#"><?= $lang[$session->getData()["lang"]]["Sign in"] ?></a>
                     </li>
                     <li>
-                        <a href="#">Services</a>
+                        <a href="#"><?= $lang[$session->getData()["lang"]]["Register establishment"] ?></a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="#"><?= $lang[$session->getData()["lang"]]["Popular vote"] ?></a>
                     </li>
+                  <?php }
+                    else {
+                      if($session->getData()['type'] == "organizer"){ ?>
+                      <li>
+                          <a href="#"><?= $lang[$session->getData()["lang"]]["Requests"] ?></a>
+                      </li>
+
+                  <?php }
+                    else if($session->getData()['type'] == "judge"){ ?>
+                      <li>
+                          <a href="#"><?= $lang[$session->getData()["lang"]]["Evaluate pinchos"] ?></a>
+                      </li>
+                      <li>
+                          <a href="#"><?= $lang[$session->getData()["lang"]]["Profile"] ?></a>
+                      </li>
+
+                    <?php }
+                      else if($session->getData()['type'] == "establishment"){ ?>
+                        <li>
+                            <a href="#"><?= $lang[$session->getData()["lang"]]["Codes"] ?></a>
+                        </li>
+                        <li>
+                            <a href="#"><?= $lang[$session->getData()["lang"]]["Profile"] ?></a>
+                        </li>
+
+                    <?php }
+                  }?>
+                    <li>
+                        <a href="#"><?= $lang[$session->getData()["lang"]]["Gastromap"] ?></a>
+                    </li>
+                    <?php
+                      if($session->isLogged()) { ?>
+                      <li>
+                          <a href="#"><?= $lang[$session->getData()["lang"]]["Sign out"] ?></a>
+                      </li>
+
+                    <?php } ?>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -76,12 +123,12 @@
                 <h2>What We Do</h2>
                 <p>Introduce the visitor to the business using clear, informative text. Use well-targeted keywords within your sentences to make sure search engines can find the business.</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et molestiae similique eligendi reiciendis sunt distinctio odit? Quia, neque, ipsa, adipisci quisquam ullam deserunt accusantium illo iste exercitationem nemo voluptates asperiores.</p>
-                <p>
+                <p id="search">
                     <a class="btn btn-default btn-lg" href="#">Call to Action &raquo;</a>
                 </p>
             </div>
             <div class="col-sm-4">
-                <h2>Contact Us</h2>
+                <h2><?= $lang[$session->getData()["lang"]]["Follow us"]; ?></h2>
                 <address>
                     <strong>Start Bootstrap</strong>
                     <br>3481 Melrose Place
