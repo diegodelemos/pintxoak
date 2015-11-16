@@ -7,7 +7,7 @@
 
   class Session {
     private $logged;
-    private $data;
+    private $data = array();
     private $flash = array();
 
     function __construct(){
@@ -19,7 +19,8 @@
         $this->logged = true;
       }
       else{
-        if(isset($_SESSION["lang"])) $this->data=$_SESSION["lang"];
+        if(isset($_SESSION["lang"]))
+          $this->data["lang"]=$_SESSION["lang"];
         else {
           $this->data["lang"] = "es";
           $_SESSION["lang"] = $this->data["lang"];

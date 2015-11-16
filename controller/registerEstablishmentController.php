@@ -2,8 +2,12 @@
 include_once "../core/ImageUploader.php";
 include_once "../model/Organizer.php";
 include_once "../model/Request.php";
+include_once "../core/Session.php";
 
 try{
+	$session = new Session();
+	if($session->isLogged())
+		throw new Exception("You are already registered");
 	checkFormCorretness();
 
 	$ePhoto = uploadImage($_FILES['establishment_photo'], "establishment");
@@ -12,11 +16,13 @@ try{
 	$request = new Request(null,null, $_POST["address"], $_POST["userName"],
 				$_POST["password"], $_POST["address"], $ePhoto, $_POST["pincho_name"],
 				$pPhoto, $_POST["pincho_price"], $_POST["ingredients"], false);
-	
+
 	$request->insert();
-	echo "Request created";
+	$session->putFlashVariable("success","Request created");
+	header("Location: ..");
 } catch(Exception $e) {
-	echo $e.getMessage();
+	$session->putFlashVariable("error",$e.getMessage());
+	header("Location: ../view/registerEstablishment.php");
 }
 
 
@@ -40,4 +46,3 @@ function checkFormCorretness() {
 	if(!isset($_POST['ingredients']) || $_POST['ingredients'] == null || $_POST['ingredients'] == "" )
 		echo "ingredients error";
 }
-
