@@ -55,4 +55,9 @@ INSERT INTO ESTABLISHMENT (e_username, address, e_name, e_photo)
 INSERT INTO PINCHO (e_username,p_name,p_photo,p_price,counter)
   VALUES("opepe","Pincho de tortilla","opepe.jpg",1.5,0),
   ("olagar","Polbo &aacute; feira","olagar.jpg",2,0),
-  ("lechu","Chourizo con queixo de cabra","lechu.jpg",1,0);
+  ("lechu","Chourizo con queixo de cabra","lechu.jpg",1,0),
+  ("meiga","Croqueta","meiga.jpg",1.5,0),
+  ("polar","Arepa","polar.jpg",2.5,0),
+  ("conti","Xamon asado","conti.jpg",2,0),
+  ("catanga","Queixo azul con marmelada","catanga.jpg",1.5,0),
+  ("xugo","Pincho de chistorra","xugo.jpg",1.5,0);

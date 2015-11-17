@@ -82,6 +82,7 @@ class Establishment extends User
     $connection = Relation::getConnection();
     $sentence = "SELECT * FROM ESTABLISHMENT WHERE e_username = ?";
     $statement = $connection->prepare($sentence);
+    $statement->bind_param("s",$this->username);
     $statement->execute();
     $statement->bind_result($username,$this->address,$this->name,$this->photo);
     $statement->fetch();
@@ -110,7 +111,7 @@ class Establishment extends User
   function exists()
   {
     $connection = Relation::getConnection();
-    $sentence = "SELECT count(*) FROM ESTABLISHMENT WHERE j_username = ?";
+    $sentence = "SELECT count(*) FROM ESTABLISHMENT WHERE e_username = ?";
     $statement = $connection->prepare($sentence);
     $statement->bind_param("s",$this->username);
     $statement->execute();

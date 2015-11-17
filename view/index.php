@@ -3,6 +3,7 @@
   include_once "../core/Lang.php";
   include_once "../controller/mainPageController.php";
   $session = new Session();
+  $userLang = $session->getData()["lang"];
 
 ?>
 
@@ -49,48 +50,48 @@
                   <?php
                     if(!$session->isLogged()) { ?>
                     <li>
-                        <a href="#"><?= $lang[$session->getData()["lang"]]["Sign in"] ?></a>
+                        <a href="#"><?= $lang[$userLang]["Sign in"] ?></a>
                     </li>
                     <li>
-                        <a href="#"><?= $lang[$session->getData()["lang"]]["Register establishment"] ?></a>
+                        <a href="#"><?= $lang[$userLang]["Register establishment"] ?></a>
                     </li>
                     <li>
-                        <a href="#"><?= $lang[$session->getData()["lang"]]["Popular vote"] ?></a>
+                        <a href="#"><?= $lang[$userLang]["Popular vote"] ?></a>
                     </li>
                   <?php }
                     else {
                       if($session->getData()['type'] == "organizer"){ ?>
                       <li>
-                          <a href="#"><?= $lang[$session->getData()["lang"]]["Requests"] ?></a>
+                          <a href="#"><?= $lang[$userLang]["Requests"] ?></a>
                       </li>
 
                   <?php }
                     else if($session->getData()['type'] == "judge"){ ?>
                       <li>
-                          <a href="#"><?= $lang[$session->getData()["lang"]]["Evaluate pinchos"] ?></a>
+                          <a href="#"><?= $lang[$userLang]["Evaluate pinchos"] ?></a>
                       </li>
                       <li>
-                          <a href="#"><?= $lang[$session->getData()["lang"]]["Profile"] ?></a>
+                          <a href="#"><?= $lang[$userLang]["Profile"] ?></a>
                       </li>
 
                     <?php }
                       else if($session->getData()['type'] == "establishment"){ ?>
                         <li>
-                            <a href="#"><?= $lang[$session->getData()["lang"]]["Codes"] ?></a>
+                            <a href="#"><?= $lang[$userLang]["Codes"] ?></a>
                         </li>
                         <li>
-                            <a href="#"><?= $lang[$session->getData()["lang"]]["Profile"] ?></a>
+                            <a href="#"><?= $lang[$userLang]["Profile"] ?></a>
                         </li>
 
                     <?php }
                   }?>
                     <li>
-                        <a href="#"><?= $lang[$session->getData()["lang"]]["Gastromap"] ?></a>
+                        <a href="#"><?= $lang[$userLang]["Gastromap"] ?></a>
                     </li>
                     <?php
                       if($session->isLogged()) { ?>
                       <li>
-                          <a href="#"><?= $lang[$session->getData()["lang"]]["Sign out"] ?></a>
+                          <a href="#"><?= $lang[$userLang]["Sign out"] ?></a>
                       </li>
 
                     <?php } ?>
@@ -103,11 +104,11 @@
 
     <!-- Image Background Page Header -->
     <!-- Note: The background image is set within the business-casual.css file. -->
-    <header class="business-header">
+    <header class="business-header" style="background-image: url('../photos/page/main.jpeg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="tagline">Business Name or Tagline</h1>
+                    <h1 class="tagline">Pintxoak</h1>
                 </div>
             </div>
         </div>
@@ -128,7 +129,7 @@
                 </p>
             </div>
             <div class="col-sm-4">
-                <h2><?= $lang[$session->getData()["lang"]]["Follow us"]; ?></h2>
+                <h2><?= $lang[$userLang]["Follow us"]; ?></h2>
                 <address>
                     <strong>Start Bootstrap</strong>
                     <br>3481 Melrose Place
@@ -148,11 +149,12 @@
 
         <div class="row">
           <?php
-            foreach ($pinchos as $pincho) { ?>
+            foreach ($pinchos as $pincho) {
+              $name = $pincho->getEstablishment()->getName(); ?>
             <div class="col-sm-4">
-                <img class="img-circle img-responsive img-center" src="../photos/pincho/<?= $pincho->getPhoto(); ?>" alt="">
+                <img class="img-circle img-responsive img-center" style="height: 300px;" src="../photos/pincho/<?= $pincho->getPhoto(); ?>" alt="">
                 <h2><?= $pincho->getName(); ?></h2>
-                <p>These marketing boxes are a great place to put some information. These can contain summaries of what the company does, promotional information, or anything else that is relevant to the company. These will usually be below-the-fold.</p>
+                <p><?= sprintf($lang[$userLang]["by %s"],$name); ?></p>
             </div>
 
             <?php } ?>

@@ -24,7 +24,8 @@
       'Evaluate pinchos' => 'Evaluate pinchos',
       'Profile' => 'Profile',
       'Codes' => 'Codes',
-      'Follow us' => 'Follow us'
+      'Follow us' => 'Follow us',
+      "by %s" => "by %s"
     ),
     'es' => array(
       'Pintxoak sign in' => 'Ingreso Pintxoak',
@@ -50,6 +51,7 @@
       'Evaluate pinchos' => 'Evaluar pinchos',
       'Profile' => 'Perfil',
       'Codes' => 'Códigos',
-      'Follow us' => 'Síguenos'
+      'Follow us' => 'Síguenos',
+      "by %s" => "by %s"
     )
   );
