@@ -1,2 +1,2 @@
 <?php
-  header("Location: controller/");
+  header("Location: view/");

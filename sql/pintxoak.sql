@@ -41,7 +41,7 @@ CREATE TABLE `ESTABLISHMENT` (
 CREATE TABLE `PINCHO` (
        `p_id` INT AUTO_INCREMENT,
        `e_username` VARCHAR(300),
-       `p_name` VARCHAR(20),
+       `p_name` VARCHAR(200),
        `p_photo` VARCHAR(300),
        `p_price` FLOAT(3,2),
        `counter` INT,

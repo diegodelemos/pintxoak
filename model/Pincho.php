@@ -5,14 +5,14 @@ include_once "Establishment.php";
 
 class Pincho extends Relation {
 
-	private id;
-	private establishment;
-	private name;
-	private photo;
-	private price;
-	private counter;
+	private $id;
+	private $establishment;
+	private $name;
+	private $photo;
+	private $price;
+	private $counter;
 
-	function __construc($id,$esblishment,$name,$photo,$price,$counter) {
+	function __construct($id,$establishment,$name,$photo,$price,$counter) {
 		$this->id=$id;
 		$this->establishment=$establishment;
 		$this->name=$name;
@@ -27,7 +27,7 @@ class Pincho extends Relation {
 			throw new Exception("Pincho already exists");
 		if(establishment.exists()) {
 			$connection = Relation::getConnection();
-			$sentence = "INSERT INTO PINCHO (e_username,p_name,p_photo,p_price,counter) 
+			$sentence = "INSERT INTO PINCHO (e_username,p_name,p_photo,p_price,counter)
 				VALUES (?, ?, ?, ?, ?)";
 			$statement = $connection->prepare($sentence);
 			$statement->bind_param("sssdi",$this->establishment->getUsername(),$this->name,
@@ -38,9 +38,9 @@ class Pincho extends Relation {
 			}
 			$connection->close();
 		} else {
-			throw new Exception("Pincho could not be created.");	
+			throw new Exception("Pincho could not be created.");
 		}
-		
+
 	}
 	// Deletes the database entry for this object id.
 	function delete() {
@@ -95,7 +95,7 @@ class Pincho extends Relation {
 		$this->establishment = new Establishment($establishmentReference,null,null,null);
 		$connection->close();
 	}
-	
+
 	// Returns an array containing an object for every DB row.
 	static function getAll() {
 		$connection = Relation::getConnection();

@@ -1,8 +1,8 @@
 /* ORGANIZER */
 INSERT INTO USER (username, password) VALUES ("diego", "abc123.");
 INSERT INTO USER (username, password) VALUES ("eliot", "abc123.");
-INSERT INTO ORGANIZER (o_username) VALUES ("diego", "abc123.")
-INSERT INTO ORGANIZER (o_username) VALUES ("eliot", "abc123.");
+INSERT INTO ORGANIZER (o_username) VALUES ("diego");
+INSERT INTO ORGANIZER (o_username) VALUES ("eliot");
 
 /* JURY */
 INSERT INTO USER (username, password) VALUES ("juanjurado", "abc123.");
@@ -10,14 +10,14 @@ INSERT INTO USER (username, password) VALUES ("pepejurado", "abc123.");
 INSERT INTO USER (username, password) VALUES ("luisjurado", "abc123.");
 INSERT INTO JUDGE (j_username, j_name, j_profession, j_photo)
        	    	  VALUES ("juanjurado", "Juan Castillo Real",
-		  "Cocinero", "juancastilloreal.png")
+		  "Cocinero", "juancastilloreal.png");
 INSERT INTO JUDGE (j_username, j_name, j_profession, j_photo)
        	    	  VALUES ("pepejurado", "Jose Blanco Calero",
-		  "Cocinero", "joseblancocalero.png")
+		  "Cocinero", "joseblancocalero.png");
 INSERT INTO JUDGE (j_username, j_name, j_profession, j_photo)
        	    	  VALUES ("luisjurado", "Luis Barrios Senderos",
-		  "Cocinero", "luisbarriossenderos.png")
-		  
+		  "Cocinero", "luisbarriossenderos.png");
+
 /* ESTABLISHMENTS */
 INSERT INTO USER (username, password) VALUES ("opepe", "abc123.");
 INSERT INTO USER (username, password) VALUES ("olagar", "abc123.");
@@ -27,31 +27,32 @@ INSERT INTO USER (username, password) VALUES ("polar", "abc123.");
 INSERT INTO USER (username, password) VALUES ("conti", "abc123.");
 INSERT INTO USER (username, password) VALUES ("catanga", "abc123.");
 INSERT INTO USER (username, password) VALUES ("xugo", "abc123.");
-INSERT INTO ESTABLISHMENT (e_username, address, e_name, e_phate)
+INSERT INTO ESTABLISHMENT (e_username, address, e_name, e_photo)
        	    		  VALUES ("opepe", "Calle Cardenal nº15",
-			  "O Pepe", "opepe.png")
-INSERT INTO ESTABLISHMENT (e_username, address, e_name, e_phate)
+			  "O Pepe", "opepe.png");
+INSERT INTO ESTABLISHMENT (e_username, address, e_name, e_photo)
        	    		  VALUES ("olagar", "Paseo nº3",
-			  "O lagar", "olagar.png")
-INSERT INTO ESTABLISHMENT (e_username, address, e_name, e_phate)
+			  "O lagar", "olagar.png");
+INSERT INTO ESTABLISHMENT (e_username, address, e_name, e_photo)
        	    		  VALUES ("lechu", "Puente Romano 53",
-			  "Bar O Lechu", "lechu.png")
-INSERT INTO ESTABLISHMENT (e_username, address, e_name, e_phate)
+			  "Bar O Lechu", "lechu.png");
+INSERT INTO ESTABLISHMENT (e_username, address, e_name, e_photo)
        	    		  VALUES ("meiga", "Morin 14",
-			  "A Meiga", "meiga.png")
-INSERT INTO ESTABLISHMENT (e_username, address, e_name, e_phate)
+			  "A Meiga", "meiga.png");
+INSERT INTO ESTABLISHMENT (e_username, address, e_name, e_photo)
        	    		  VALUES ("polar", "Calle Cardenal nº4",
-			  "Cafe Bar Polar", "polar.png")
-INSERT INTO ESTABLISHMENT (e_username, address, e_name, e_phate)
+			  "Cafe Bar Polar", "polar.png");
+INSERT INTO ESTABLISHMENT (e_username, address, e_name, e_photo)
        	    		  VALUES ("conti", "Quevedo 1",
-			  "Cafes Conti", "conti.png")
-INSERT INTO ESTABLISHMENT (e_username, address, e_name, e_phate)
+			  "Cafes Conti", "conti.png");
+INSERT INTO ESTABLISHMENT (e_username, address, e_name, e_photo)
        	    		  VALUES ("catanga", "Calle Ozono 31",
-			  "Catanga", "catanga.png")
-INSERT INTO ESTABLISHMENT (e_username, address, e_name, e_phate)
+			  "Catanga", "catanga.png");
+INSERT INTO ESTABLISHMENT (e_username, address, e_name, e_photo)
        	    		  VALUES ("xugo", "Calle Turquesa 34",
-			  "Tapas O Xugo", "xugo.png")
+			  "Tapas O Xugo", "xugo.png");
 
-
-
-
+INSERT INTO PINCHO (e_username,p_name,p_photo,p_price,counter)
+  VALUES("opepe","Pincho de tortilla","opepe.jpg",1.5,0),
+  ("olagar","Polbo &aacute; feira","olagar.jpg",2,0),
+  ("lechu","Chourizo con queixo de cabra","lechu.jpg",1,0);

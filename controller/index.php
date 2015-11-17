@@ -1,2 +1,2 @@
 <?php
-  header("Location: mainPageController.php");
+  header("Location: view/");
