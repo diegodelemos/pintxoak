@@ -17,9 +17,10 @@ class Request extends Relation {
   private $pPhoto;
   private $pPrice;
   private $ingredients;
+  private $eName;
 
   function __construct($id,$organizer,$address,$email,$password,$ePhoto,
-      $pName,$pPhoto,$pPrice,$ingredients,$state){
+      $pName,$pPhoto,$pPrice,$ingredients,$state,$eName){
     $this->id = $id;
     $this->organizer = $organizer;
     $this->email = $email;
@@ -31,6 +32,7 @@ class Request extends Relation {
     $this->pPhoto = $pPhoto;
     $this->pPrice = $pPrice;
     $this->ingredients = $ingredients;
+    $this->eName = $eName;
   }
 
   // Inserts the object data in the database.
@@ -41,11 +43,12 @@ class Request extends Relation {
     $connection = Relation::getConnection();
     $sentence = "INSERT INTO REQUEST (address,email,password,
       e_photo,p_name,p_photo,p_price,ingredients,state) VALUES (?, ?, ?, ?, ?,
-      ?, ?, ?, ?)";
+      ?, ?, ?, ?, ?)";
     $statement = $connection->prepare($sentence);
     $statement->bind_param("ssssssdsi",
       $this->address,$this->email,$this->password,$this->ePhoto,
-      $this->pName,$this->pPhoto,$this->pPrice,$this->ingredients,$this->state);
+      $this->pName,$this->pPhoto,$this->pPrice,$this->ingredients,$this->state,
+      $this->eName);
     $statement->execute();
     if($statement->affected_rows == 1){
       $connection->close();
@@ -83,11 +86,11 @@ class Request extends Relation {
     $connection = Relation::getConnection();
     $sentence = "UPDATE REQUEST SET o_username = ?, address = ?, email = ?,
       password = ?, e_photo = ?, p_name = ?, p_photo = ?, p_price = ?,
-      ingredients = ?, state = ? WHERE r_id = ?";
+      ingredients = ?, state = ?, e_name = ? WHERE r_id = ?";
     $statement = $connection->prepare($sentence);
     $statement->bind_param("ssssii",$this->organizer->getName(),$this->address,
       $this->email,$this->password,$this->e_photo,$this->pName,$this->pPhoto,
-      $this->pPrice,$this->ingredients,$this->state,$this->id);
+      $this->pPrice,$this->ingredients,$this->state,$this->id,$this->eName);
     $statement->execute();
     if($statement->affected_rows != 1){
       $connection->close();
@@ -109,7 +112,7 @@ class Request extends Relation {
     $statement->execute();
     $statement->bind_result($nothing,$this->organizer,$this->address,
       $this->email,$this->password,$this->ePhoto,$this->pName,
-      $this->pPhoto,$this->pPrice,$this->state);
+      $this->pPhoto,$this->pPrice,$this->state,$this->eName);
     $statement->fetch();
     $this->organizer = new Organizer($organizer);
     $connection->close();
@@ -124,11 +127,11 @@ class Request extends Relation {
     $statement = $connection->prepare($sentence);
     $statement->execute();
     $statement->bind_result($id,$organizer,$address,$email,$password,$ePhoto,$pName,
-      $pPhoto,$pPrice,$ingredients,$state);
+      $pPhoto,$pPrice,$ingredients,$state,$eName);
     $requests=array();
     while($statement->fetch()){
       $requests[] = new Request($id,new Organizer($organizer),$address,$email,
-        $password,$ePhoto,$pName,$pPhoto,$pPrice,$ingredients,$state);
+        $password,$ePhoto,$pName,$pPhoto,$pPrice,$ingredients,$state,$eName);
     }
     $connection->close();
     return $requests;
@@ -234,6 +237,13 @@ class Request extends Relation {
 
   function setState($state){
     $this->state = $state;
+  }
+  function getEName(){
+    return $this->eName;
+  }
+
+  function setEName($eName){
+    $this->eName = $eName;
   }
 
 }

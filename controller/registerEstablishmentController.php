@@ -15,7 +15,7 @@ try{
 
 	$request = new Request(null,null, $_POST["address"], $_POST["userName"],
 				$_POST["password"], $_POST["address"], $ePhoto, $_POST["pincho_name"],
-				$pPhoto, $_POST["pincho_price"], $_POST["ingredients"], false);
+				$pPhoto, $_POST["pincho_price"], $_POST["ingredients"], false, $_POST["establishment_name"]);
 
 	$request->insert();
 	$session->putFlashVariable("success","Request created");
@@ -45,4 +45,6 @@ function checkFormCorretness() {
 		echo "pincho price error";
 	if(!isset($_POST['ingredients']) || $_POST['ingredients'] == null || $_POST['ingredients'] == "" )
 		echo "ingredients error";
+	if(!isset($_POST['establishment_name']) || $_POST['establishment_name'] == null || $_POST['establishment_name'] == "" )
+		echo "establishment name error";
 }

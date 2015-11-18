@@ -8,7 +8,7 @@
       'Sign in' => 'Sign in',
       'Register establishment' => 'Register establishment',
       'E-mail' => 'E-mail',
-      'Establishment name' => 'Esblishment name',
+      'Establishment name' => 'Establishment name',
       'Establishment address' => 'Esblishment address',
       'Establishment photo' => 'Esblishment photo',
       'Pincho name' => 'Pincho name',
