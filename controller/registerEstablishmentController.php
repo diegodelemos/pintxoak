@@ -8,7 +8,9 @@ try{
 	$session = new Session();
 	if($session->isLogged())
 		throw new Exception("You are already registered");
-	checkFormCorretness();
+	if(!formIsCorrect())
+		throw new Exception("Check the form");
+	}
 
 	$ePhoto = uploadImage($_FILES['establishment_photo'], "establishment");
 	$pPhoto = uploadImage($_FILES['pincho_photo'], "pincho");
@@ -27,25 +29,47 @@ try{
 }
 
 
-function checkFormCorretness() {
-	if(!isset($_POST['userName']) || $_POST['userName'] == null || $_POST['userName'] == "" )
-		throw new Exception("You must enter an username");
+function formIsCorrect() {
+	$correct = true;
+	if(!isset($_POST['userName']) || $_POST['userName'] == null || $_POST['userName'] == "" ){
+		$session->putFlashMessage("error","You must enter an username");
+		$correct = false;
+	}
 	if(!isset($_POST['password']) || $_POST['password'] == null || $_POST['password'] == "" )
-		throw new Exception("You must enter a password");
+		$session->putFlashMessage("error","You must enter a password");
+		$correct = false;
+	}
 	if(!isset($_POST['establishment_name']) || $_POST['establishment_name'] == null || $_POST['establishment_name'] == "" )
-		throw new Exception("You must enter an establishment name");
+		$session->putFlashMessage("error","You must enter an establishment name");
+		$correct = false;
+	}
 	if(!isset($_POST['address']) || $_POST['address'] == null || $_POST['address'] == "" )
-		throw new Exception("You must enter an address");
+		$session->putFlashMessage("error","You must enter an address");
+		$correct = false;
+	}
 	if(!isset($_FILES['establishment_photo']) || $_FILES['establishment_photo'] == null)
-		throw new Exception("You must upload a photo of your establishment");
+		$session->putFlashMessage("error","You must upload a photo of your establishment");
+		$correct = false;
+	}
 	if(!isset($_POST['pincho_name']) || $_POST['pincho_name'] == null || $_POST['pincho_name'] == "" )
-		throw new Exception("You must enter a pincho name");
+		$session->putFlashMessage("error","You must enter a pincho name");
+		$correct = false;
+	}
 	if(!isset($_FILES['pincho_photo']) || $_FILES['pincho_photo'] == null)
-		throw new Exception("You must upload a photo of your pincho");
+		$session->putFlashMessage("error","You must upload a photo of your pincho");
+		$correct = false;
+	}
 	if(!isset($_POST['pincho_price']) || $_POST['pincho_price'] == null || $_POST['pincho_price'] == "" )
 		throw new Exception("You must enter the pincho's price");
+		$correct = false;
+	}
 	if(!isset($_POST['ingredients']) || $_POST['ingredients'] == null || $_POST['ingredients'] == "" )
 		throw new Exception("You must enter the pincho ingredients");
+		$correct = false;
+	}
 	if(!isset($_POST['establishment_name']) || $_POST['establishment_name'] == null || $_POST['establishment_name'] == "" )
-		throw new Exception("You must enter the establishment name");
+		$session->putFlashMessage("error","You must enter the establishment name");
+		$correct = false;
+	}
+	return $correct;
 }

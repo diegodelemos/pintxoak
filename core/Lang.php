@@ -74,7 +74,8 @@
       "You must upload a photo of your pincho" => "You must upload a photo of your pincho",
       "You must enter the pincho's price" => "You must enter the pincho's price",
       "You must enter the pincho ingredients" => "You must enter the pincho ingredients",
-      "You must enter the establishment name" => "You must enter the establishment name"
+      "You must enter the establishment name" => "You must enter the establishment name",
+      "Check the form" => "Check the form"
     ),
     'es' => array(
       'Pintxoak sign in' => 'Ingreso Pintxoak',
@@ -150,6 +151,7 @@
       "You must upload a photo of your pincho" => "Debes subir una foto de tu pincho",
       "You must enter the pincho's price" => "Debes introducir el precio del pincho",
       "You must enter the pincho ingredients" => "Debes introducir los ingredientes del pincho",
-      "You must enter the establishment name" => "Debes introducir el nombre del establecimiento"
+      "You must enter the establishment name" => "Debes introducir el nombre del establecimiento",
+      "Check the form" => "Revisa el formulario"
     )
   );
