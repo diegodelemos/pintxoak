@@ -61,3 +61,10 @@ INSERT INTO PINCHO (e_username,p_name,p_photo,p_price,counter)
   ("conti","Xamon asado","conti.jpg",2,0),
   ("catanga","Queixo azul con marmelada","catanga.jpg",1.5,0),
   ("xugo","Pincho de chistorra","xugo.jpg",1.5,0);
+
+INSERT INTO REQUEST (o_username,address,email,password,e_photo,p_name,p_photo,
+  p_price,ingredients,state,e_name) VALUES
+  (null,"calle del lagarto 8","a@a.b","abc123.","farol.jpg","Minipizza",
+    "farol.png",1.5,"masa agua sal queixo tomate",0,"O Farol"),
+    (null,"rua se&ntilde;or frasco","a@b.b","abc123.","blue.jpg","Cocodrilo",
+      "blue.jpg",2,"carne de cocodrilo",0,"Blue Lake");

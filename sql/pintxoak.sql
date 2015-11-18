@@ -20,7 +20,7 @@ CREATE TABLE `ORGANIZER` (
 
 CREATE TABLE `JUDGE` (
        `j_username` VARCHAR(300),
-       `j_name` VARCHAR(30),
+       `j_name` VARCHAR(200),
        `j_profession` VARCHAR(50),
        `j_photo` VARCHAR(300), /* We are going to store the file path */
        PRIMARY KEY(`j_username`),
@@ -31,7 +31,7 @@ CREATE TABLE `JUDGE` (
 CREATE TABLE `ESTABLISHMENT` (
        `e_username` VARCHAR(300),
        `address` VARCHAR(100),
-       `e_name` VARCHAR(20),
+       `e_name` VARCHAR(200),
        `e_photo` VARCHAR(300), /* We are going to store the file path */
        PRIMARY KEY(`e_username`),
        FOREIGN KEY(`e_username`) REFERENCES USER(`username`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -75,11 +75,12 @@ CREATE TABLE `REQUEST` (
        `email` VARCHAR(300),
        `password` VARCHAR(32),
        `e_photo` VARCHAR(300),
-       `p_name` VARCHAR(20),
+       `p_name` VARCHAR(200),
        `p_photo` VARCHAR(300),
        `p_price` FLOAT(3,2),
        `ingredients` VARCHAR(500),
        `state` TINYINT(1),
+       `e_name` VARCHAR(200),
        PRIMARY KEY(`r_id`),
        FOREIGN KEY(`o_username`) REFERENCES ORGANIZER(`o_username`) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -106,7 +107,7 @@ CREATE TABLE `ASSIGNMENT` (
 
 CREATE TABLE `CONTAINS` (
        `p_id` INT,
-       `i_name` VARCHAR(20),
+       `i_name` VARCHAR(200),
        PRIMARY KEY(`p_id`, `i_name`),
        FOREIGN KEY(`p_id`) REFERENCES PINCHO(`p_id`) ON DELETE CASCADE ON UPDATE CASCADE,
        FOREIGN KEY(`i_name`) REFERENCES INGREDIENT(`i_name`) ON DELETE CASCADE ON UPDATE CASCADE

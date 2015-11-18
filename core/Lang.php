@@ -62,7 +62,9 @@
       "Request could not be deleted" => "Request could not be deleted",
       "Request could not be updated" => "Request could not be updated",
       "You are not signed in" => "You are not signed in",
-      "You shall not pass" => "You shall not pass"
+      "You shall not pass" => "You shall not pass",
+      "Accept" => "Accept",
+      "Reject" => "Reject"
     ),
     'es' => array(
       'Pintxoak sign in' => 'Ingreso Pintxoak',
@@ -126,6 +128,8 @@
       "Request could not be deleted" => "No se pudo borrar la petici&oacute;n",
       "Request could not be updated" => "No se pudo actualizar la petici&oacute;n",
       "You are not signed in" => "No has ingresado",
-      "You shall not pass" => "No puedes pasar"
+      "You shall not pass" => "No puedes pasar",
+      "Accept" => "Aceptar",
+      "Reject" => "Rechazar"
     )
   );
