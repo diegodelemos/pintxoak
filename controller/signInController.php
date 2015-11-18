@@ -9,7 +9,7 @@ try {
       throw new Exception("Authentication failure");
   }
 } catch (Exception $e) {
-  $session->putFlashVariable("error",$e->getMessage());
+  $session->putFlashMessage("error",$e->getMessage());
 }
 
 header("Location: ..");

@@ -82,7 +82,7 @@
                     <?php
                       if($session->isLogged()) { ?>
                       <li>
-                          <a href="#"><?= $lang[$userLang]["Sign out"] ?></a>
+                          <a href="../controller/signOutController.php"><?= $lang[$userLang]["Sign out"] ?></a>
                       </li>
 
                     <?php } ?>
@@ -103,7 +103,7 @@
             $type = "danger";
           else $type = $message["type"];
           echo "<div class='alert alert-".$type."' role='alert'>";
-          echo $lang[$userLang][$message["content"]];
+          echo $lang[$userLang][$message["message"]];
           echo "</div>";
         }
       echo $content;?>

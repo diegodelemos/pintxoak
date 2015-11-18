@@ -31,11 +31,11 @@
       else
         $_SESSION["flash"] = array();
     }
-    public function login($username,$password,$userLang = "en"){
+    public function login($username,$password,$userLang = "es"){
       $user = new Organizer($username,null);
       if($user->checkPassword($password)){
         if($user->exists()){
-	  $_SESSION["userName"] = $user->getUserName();
+	        $_SESSION["userName"] = $user->getUserName();
           $this->data["userName"] = $user->getUserName();
           $_SESSION["type"] = "organizer";
           $this->data["type"] = "organizer";
@@ -45,10 +45,10 @@
           $this->logged = true;
         }
         else{
-          $user = new Judge($dni,null,null,null,null);
+          $user = new Judge($username,null,null,null,null);
           if($user->exists()){
             $user->populate();
-	    $_SESSION["userName"] = $user->getUserName();
+	          $_SESSION["userName"] = $user->getUserName();
             $this->data["userName"] = $user->getUserName();
             $_SESSION["name"] = $user->getName();
             $this->data["name"] = $user->getName();
@@ -64,10 +64,10 @@
             $this->logged = true;
           }
           else{
-            $user = new Establishment($dni,null,null,null,null);
+            $user = new Establishment($username,null,null,null,null);
             if($user->exists()){
               $user->populate();
-	      $_SESSION["userName"] = $user->getUserName();
+	            $_SESSION["userName"] = $user->getUserName();
               $this->data["userName"] = $user->getUserName();
               $_SESSION["name"] = $user->getName();
               $this->data["name"] = $user->getName();
