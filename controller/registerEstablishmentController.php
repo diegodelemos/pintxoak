@@ -15,7 +15,8 @@ try{
 
 	$request = new Request(null,null, $_POST["address"], $_POST["userName"],
 				$_POST["password"], $_POST["address"], $ePhoto, $_POST["pincho_name"],
-				$pPhoto, $_POST["pincho_price"], $_POST["ingredients"], false, $_POST["establishment_name"]);
+				$pPhoto, $_POST["pincho_price"], $_POST["ingredients"], false,
+				$_POST["establishment_name"]);
 
 	$request->insert();
 	$session->putFlashVariable("success","Request created");
@@ -28,23 +29,23 @@ try{
 
 function checkFormCorretness() {
 	if(!isset($_POST['userName']) || $_POST['userName'] == null || $_POST['userName'] == "" )
-		echo "username error";
+		throw new Exception("You must enter an username");
 	if(!isset($_POST['password']) || $_POST['password'] == null || $_POST['password'] == "" )
-		echo "password error";
+		throw new Exception("You must enter a password");
 	if(!isset($_POST['establishment_name']) || $_POST['establishment_name'] == null || $_POST['establishment_name'] == "" )
-		echo "establishment name error";
+		throw new Exception("You must enter an establishment name");
 	if(!isset($_POST['address']) || $_POST['address'] == null || $_POST['address'] == "" )
-		echo "address error";
+		throw new Exception("You must enter an address");
 	if(!isset($_FILES['establishment_photo']) || $_FILES['establishment_photo'] == null)
-		echo "establishment photo error";
+		throw new Exception("You must upload a photo of your establishment");
 	if(!isset($_POST['pincho_name']) || $_POST['pincho_name'] == null || $_POST['pincho_name'] == "" )
-		echo "pincho name error";
+		throw new Exception("You must enter a pincho name");
 	if(!isset($_FILES['pincho_photo']) || $_FILES['pincho_photo'] == null)
-		echo "pincho photo error";
+		throw new Exception("You must upload a photo of your pincho");
 	if(!isset($_POST['pincho_price']) || $_POST['pincho_price'] == null || $_POST['pincho_price'] == "" )
-		echo "pincho price error";
+		throw new Exception("You must enter the pincho's price");
 	if(!isset($_POST['ingredients']) || $_POST['ingredients'] == null || $_POST['ingredients'] == "" )
-		echo "ingredients error";
+		throw new Exception("You must enter the pincho ingredients");
 	if(!isset($_POST['establishment_name']) || $_POST['establishment_name'] == null || $_POST['establishment_name'] == "" )
-		echo "establishment name error";
+		throw new Exception("You must enter the establishment name");
 }

@@ -64,7 +64,17 @@
       "You are not signed in" => "You are not signed in",
       "You shall not pass" => "You shall not pass",
       "Accept" => "Accept",
-      "Reject" => "Reject"
+      "Reject" => "Reject",
+      "You must enter an username" => "You must enter an username",
+      "You must enter a password" => "You must enter a password",
+      "You must enter an establishment name" => "You must enter an establishment name",
+      "You must enter an address" => "You must enter an address",
+      "You must upload a photo of your establishment" => "You must upload a photo of your establishment",
+      "You must enter a pincho name" => "You must enter a pincho name",
+      "You must upload a photo of your pincho" => "You must upload a photo of your pincho",
+      "You must enter the pincho's price" => "You must enter the pincho's price",
+      "You must enter the pincho ingredients" => "You must enter the pincho ingredients",
+      "You must enter the establishment name" => "You must enter the establishment name"
     ),
     'es' => array(
       'Pintxoak sign in' => 'Ingreso Pintxoak',
@@ -130,6 +140,16 @@
       "You are not signed in" => "No has ingresado",
       "You shall not pass" => "No puedes pasar",
       "Accept" => "Aceptar",
-      "Reject" => "Rechazar"
+      "Reject" => "Rechazar",
+      "You must enter an username" => "Debes introducir un nombre de usuario",
+      "You must enter a password" => "Debes introducir una contrase&ntilde;a",
+      "You must enter an establishment name" => "Debes introducir el nombre del establecimiento",
+      "You must enter an address" => "Debes introducir una direci&oacute;n",
+      "You must upload a photo of your establishment" => "Debes subir una foto de tu establecimiento",
+      "You must enter a pincho name" => "Debes introducir el nombre del pincho",
+      "You must upload a photo of your pincho" => "Debes subir una foto de tu pincho",
+      "You must enter the pincho's price" => "Debes introducir el precio del pincho",
+      "You must enter the pincho ingredients" => "Debes introducir los ingredientes del pincho",
+      "You must enter the establishment name" => "Debes introducir el nombre del establecimiento"
     )
   );
