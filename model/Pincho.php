@@ -34,11 +34,11 @@ class Pincho extends Relation {
 				$this->photo,$this->price,$this->counter);
 			$statement->execute();
 			if($statement->affected_rows != 1){
-				throw new Exception("Pincho could not be created.");
+				throw new Exception("Pincho could not be created");
 			}
 			$connection->close();
 		} else {
-			throw new Exception("Pincho could not be created.");
+			throw new Exception("Pincho could not be created");
 		}
 
 	}
@@ -56,7 +56,7 @@ class Pincho extends Relation {
 		}
 		else{
 			$connection->close();
-			throw new Exception("Pincho could not be deleted.");
+			throw new Exception("Pincho could not be deleted");
 		}
 	}
 	// Updates the database entry for this object id.
@@ -73,7 +73,7 @@ class Pincho extends Relation {
 		$statement->execute();
 		if($statement->affected_rows != 1){
 			$connection->close();
-			throw new Exception("Pincho could not be updated.");
+			throw new Exception("Pincho could not be updated");
 		}
 		$connection->close();
 	}

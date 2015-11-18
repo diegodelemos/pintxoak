@@ -52,7 +52,7 @@ class Request extends Relation {
     }
     else{
       $connection->close();
-      throw new Exception("Request could not be created.");
+      throw new Exception("Request could not be created");
     }
   }
 
@@ -71,7 +71,7 @@ class Request extends Relation {
     }
     else{
       $connection->close();
-      throw new Exception("Request could not be deleted.");
+      throw new Exception("Request could not be deleted");
     }
   }
 
@@ -91,7 +91,7 @@ class Request extends Relation {
     $statement->execute();
     if($statement->affected_rows != 1){
       $connection->close();
-      throw new Exception("Request could not be updated.");
+      throw new Exception("Request could not be updated");
     }
     $connection->close();
   }
@@ -187,7 +187,7 @@ class Request extends Relation {
   function setPassword($password){
     $this->password = $password;
   }
-  
+
   function getEPhoto(){
     return $this->ePhoto;
   }

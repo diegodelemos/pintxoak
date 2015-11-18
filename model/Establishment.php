@@ -40,13 +40,13 @@ class Establishment extends User
       else{
         $connection->rollback();
         $connection->close();
-        throw new Exception("User could not be created.");
+        throw new Exception("User could not be created");
       }
     }
     else{
       $connection->rollback();
       $connection->close();
-      throw new Exception("User could not be created.");
+      throw new Exception("User could not be created");
     }
   }
 
@@ -67,7 +67,7 @@ class Establishment extends User
     if($statement->affected_rows != 1){
       $connection->rollback();
       $connection->close();
-      throw new Exception("User could not be updated.");
+      throw new Exception("User could not be updated");
     }
     $connection->commit();
     $connection->close();

@@ -1,18 +1,16 @@
 <?php
   include_once "../core/Session.php";
-  include_once "../core/Lang.php";
-  include_once "../core/Config.php";
   $session = new Session();
   if($session->isLogged()){
     $session->putFlashVariable("error","You are already registered");
     header("Location: .");
   }
+  include_once "../core/Lang.php";
+  include_once "../core/Config.php";
   $userLang = $session->getData()["lang"];
+  $title = "<h2>".$lang[$userLang]['Register establishment']."</h2>";
   ob_start();
 ?>
-  <h2>
-    <?= $lang[$userLang]['Register establishment'];?>
-  </h2>
       <form class="form-horizontal" action="../controller/registerEstablishmentController.php" method="POST" enctype='multipart/form-data'>
         <div class="form-group">
           <label for="userName" class="sr-only">

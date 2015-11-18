@@ -1,18 +1,16 @@
 <?php
   include_once "../core/Session.php";
-  include_once "../core/Lang.php";
-  include_once "../core/Config.php";
   $session = new Session();
   if($session->isLogged()){
     $session->putFlashVariable("error","You are already signed in");
     header("Location: .");
   }
+  include_once "../core/Lang.php";
+  include_once "../core/Config.php";
   $userLang = $session->getData()["lang"];
+  $title = "<h2>".$lang[$userLang]['Pintxoak sign in']."</h2>";
   ob_start();
 ?>
-  <h2>
-<?= $lang[$userLang]['Pintxoak sign in'];?>
-</h2>
       <form class="form-horizontal" action="../controller/signInController.php" method="POST">
       <div class="form-group">
         <label for="userName" class="sr-only">

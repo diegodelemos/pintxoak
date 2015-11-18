@@ -6,7 +6,7 @@ try {
   if(isset($_POST["userName"]) && isset($_POST["password"])){
           $session->login($_POST["userName"], $_POST["password"]);
   } else {
-      throw new Exception("Failed to auth");
+      throw new Exception("Authentication failure");
   }
 } catch (Exception $e) {
   $session->putFlashVariable("error",$e->getMessage());

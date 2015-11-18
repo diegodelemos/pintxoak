@@ -32,7 +32,7 @@ abstract class User extends Relation
     }
     else{
       $connection->close();
-      throw new Exception("User could not be deleted.");
+      throw new Exception("User could not be deleted");
     }
   }
 

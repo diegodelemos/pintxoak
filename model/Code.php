@@ -24,18 +24,18 @@ class Code extends Relation {
 			throw new Exception("Code already exists");
 		if(pincho->exists()) {
 			$connection = Relation::getConnection();
-			$sentence = "INSERT INTO CODE (p_id,code_num,used,winner,hash) 
+			$sentence = "INSERT INTO CODE (p_id,code_num,used,winner,hash)
 				VALUES (?, ?, ?, ?, ?)";
 			$statement = $connection->prepare($sentence);
 			$statement->bind_param("iiiis",$this->pincho->getId(),$this->codeNum,
 				$this->used,$this->winner,$this->hash);
 			$statement->execute();
 			if($statement->affected_rows != 1){
-				throw new Exception("Code could not be created.");
+				throw new Exception("Code could not be created");
 			}
 			$connection->close();
 		} else {
-			throw new Exception("Code could not be created.");	
+			throw new Exception("Code could not be created");
 		}
 	}
 	// Deletes the database entry for this object id.
@@ -52,7 +52,7 @@ class Code extends Relation {
 		}
 		else{
 			$connection->close();
-			throw new Exception("Code could not be deleted.");
+			throw new Exception("Code could not be deleted");
 		}
 	}
 	// Updates the database entry for this object id.
@@ -61,7 +61,7 @@ class Code extends Relation {
 			throw new Exception("Code doesn't exist");
 		$connection = Relation::getConnection();
 		$this->userUpdate($connection);
-		$sentence = "UPDATE CODE SET used = ?, winner = ?, hash = ? 
+		$sentence = "UPDATE CODE SET used = ?, winner = ?, hash = ?
 				WHERE p_id = ?, code_num = ?";
 		$statement = $connection->prepare($sentence);
 		$statement->bind_param("iisii",$this->used,$this->winner,$this->hash,
@@ -69,7 +69,7 @@ class Code extends Relation {
 		$statement->execute();
 		if($statement->affected_rows != 1){
 			$connection->close();
-			throw new Exception("Code could not be updated.");
+			throw new Exception("Code could not be updated");
 		}
 		$connection->close();
 	}
@@ -127,7 +127,7 @@ class Code extends Relation {
 	function setPincho($pincho){
 		$this->pincho = $pincho;
 	}
-	
+
 	function getCodeNum(){
 		return $this->codeNum;
 	}
@@ -160,9 +160,3 @@ class Code extends Relation {
 	function setHash($hash){
 		$this->hash = $hash;
 	}
-
-
-
-
-
-

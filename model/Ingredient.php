@@ -28,7 +28,7 @@ class Ingredient extends Relation {
     }
     else{
       $connection->close();
-      throw new Exception("Ingredient could not be created.");
+      throw new Exception("Ingredient could not be created");
     }
   }
 
@@ -47,7 +47,7 @@ class Ingredient extends Relation {
     }
     else{
       $connection->close();
-      throw new Exception("Ingredient could not be deleted.");
+      throw new Exception("Ingredient could not be deleted");
     }
   }
 
@@ -65,7 +65,7 @@ class Ingredient extends Relation {
     $statement->execute();
     if($statement->affected_rows != 1){
       $connection->close();
-      throw new Exception("Ingrediend could not be updated.");
+      throw new Exception("Ingrediend could not be updated");
     }
     $this->name = $this->newName;
     $connection->close();

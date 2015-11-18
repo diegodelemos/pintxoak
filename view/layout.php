@@ -96,7 +96,17 @@
     <!-- Page Content -->
     <?php if(isset($header)) echo $header;?>
     <div class="container">
-      <?php echo $content;?>
+      <?php if(isset($title)) echo $title;?>
+      <?php
+        foreach($session->getFlashMessages() as $message){
+          if($message["type"] == "error")
+            $type = "danger";
+          else $type = $message["type"];
+          echo "<div class='alert alert-".$type."' role='alert'>";
+          echo $lang[$userLang][$message["content"]];
+          echo "</div>";
+        }
+      echo $content;?>
       <hr>
 
       <!-- Footer -->

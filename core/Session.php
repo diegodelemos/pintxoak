@@ -84,12 +84,12 @@
 
             }
             else
-              throw new Exception("Failed at signing in");
+              throw new Exception("Authentication failure");
           }
         }
       }
       else
-        throw new Exception("Failed at signing in");
+        throw new Exception("Authentication failure");
     }
     public function logout(){
       session_unset();

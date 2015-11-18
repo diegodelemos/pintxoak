@@ -33,13 +33,13 @@ class Organizer extends User
       else{
         $connection->rollback();
         $connection->close();
-        throw new Exception("User could not be created.");
+        throw new Exception("User could not be created");
       }
     }
     else{
       $connection->rollback();
       $connection->close();
-      throw new Exception("User could not be created.");
+      throw new Exception("User could not be created");
     }
   }
 
