@@ -25,7 +25,10 @@
       'Profile' => 'Profile',
       'Codes' => 'Codes',
       'Follow us' => 'Follow us',
-      "by %s" => "by %s"
+      "by %s" => "by %s",
+      'Sign up' => 'Sign up',
+      "You are already registered" => "You are already registered",
+      "You are already signed in" => "You are already signed in"
     ),
     'es' => array(
       'Pintxoak sign in' => 'Ingreso Pintxoak',
@@ -52,6 +55,9 @@
       'Profile' => 'Perfil',
       'Codes' => 'Códigos',
       'Follow us' => 'Síguenos',
-      "by %s" => "by %s"
+      "by %s" => "por %s",
+      'Sign up' => 'Registrarse',
+      "You are already registered" => "Ya estás registrado",
+      "You are already signed in" => "Ya estás ingresado"
     )
   );

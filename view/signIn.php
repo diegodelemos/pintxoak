@@ -1,48 +1,37 @@
 <?php
-include_once "../core/Lang.php";
-$userLang = 'en';
+  include_once "../core/Session.php";
+  include_once "../core/Lang.php";
+  include_once "../core/Config.php";
+  $session = new Session();
+  if($session->isLogged()){
+    $session->putFlashVariable("error","You are already signed in");
+    header("Location: .");
+  }
+  $userLang = $session->getData()["lang"];
+  ob_start();
 ?>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title><?= $lang[$userLang]['Pintxoak sign in'];?></title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-
-  </head>
-
-  <body>
-    <div class="col-sm-4 col-md-5 xs-hidden"></div>
-    <div class="container col-sm-4 col-md-2 col-xs-12">
-
-      <form class="form-signin" action="../controller/signInController.php" method="POST">
-        <h2>
-		<?= $lang[$userLang]['Pintxoak sign in'];?>
-	</h2>
+  <h2>
+<?= $lang[$userLang]['Pintxoak sign in'];?>
+</h2>
+      <form class="form-horizontal" action="../controller/signInController.php" method="POST">
+      <div class="form-group">
         <label for="userName" class="sr-only">
 		<?= $lang[$userLang]['User name'];?>
 	</label>
         <input type="text" name="userName" id="userName" class="form-control" placeholder="<?= $lang[$userLang]['User name'];?>" required autofocus>
+      </div>
+      <div class="form-group">
         <label for="password" class="sr-only">
 		<?= $lang[$userLang]['Password'];?>
 	</label>
         <input type="password" name="password" id="password" class="form-control" placeholder="<?= $lang[$userLang]['Password'];?>" required>
+      </div>
+      <div class="form-group">
         <button class="btn btn-lg btn-primary btn-block" type="submit">
 		<?= $lang[$userLang]['Sign in'];?>
 	</button>
+</div>
       </form>
-
-    </div>
-    <div class="col-sm-4 col-md-5 xs-hidden"></div>
-    <script src="../js/bootstrap.min.js"></script>
-  </body>
-</html>
-
+<?php
+  $content = ob_get_clean();
+  include_once "layout.php";
