@@ -19,10 +19,10 @@ try{
 				$_POST["establishment_name"]);
 
 	$request->insert();
-	$session->putFlashVariable("success","Request created");
+	$session->putFlashMessage("success","Request created");
 	header("Location: ..");
 } catch(Exception $e) {
-	$session->putFlashVariable("error",$e.getMessage());
+	$session->putFlashMessage("error",$e.getMessage());
 	header("Location: ../view/registerEstablishment.php");
 }
 

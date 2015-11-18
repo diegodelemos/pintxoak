@@ -2,7 +2,7 @@
   include_once "../core/Session.php";
   $session = new Session();
   if($session->isLogged()){
-    $session->putFlashVariable("error","You are already registered");
+    $session->putFlashMessage("error","You are already registered");
     header("Location: .");
   }
   include_once "../core/Lang.php";
@@ -35,7 +35,7 @@
 		<?= $lang[$userLang]['Establishment name'];?>
 	</label>
         <input type="text" name="establishment_name" id="establishment_name" class="form-control" placeholder="<?= $lang[$userLang]['Establishment name'];?>" required>
-      </div>      
+      </div>
       <div class="form-group">
 	<label for="address" class="sr-only">
 		<?= $lang[$userLang]['Esblishment address'];?>

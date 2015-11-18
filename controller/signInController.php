@@ -12,4 +12,4 @@ try {
   $session->putFlashMessage("error",$e->getMessage());
 }
 
-header("Location: ..");
+header("Location: ../view/signIn.php");

@@ -2,7 +2,7 @@
   include_once "../core/Session.php";
   $session = new Session();
   if($session->isLogged()){
-    $session->putFlashVariable("error","You are already signed in");
+    $session->putFlashMessage("error","You are already signed in");
     header("Location: .");
   }
   include_once "../core/Lang.php";

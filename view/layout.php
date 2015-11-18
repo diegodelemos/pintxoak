@@ -96,16 +96,18 @@
     <!-- Page Content -->
     <?php if(isset($header)) echo $header;?>
     <div class="container">
-      <?php if(isset($title)) echo $title;?>
+      <div><?php if(isset($title)) echo $title;?></div>
+      <div>
       <?php
         foreach($session->getFlashMessages() as $message){
           if($message["type"] == "error")
             $type = "danger";
           else $type = $message["type"];
           echo "<div class='alert alert-".$type."' role='alert'>";
-          echo $lang[$userLang][$message["message"]];
+          echo "<h4>".$lang[$userLang][$message["message"]]."</h4>";
           echo "</div>";
         }
+      echo "</div>";
       echo $content;?>
       <hr>
 
