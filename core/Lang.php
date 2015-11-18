@@ -75,7 +75,10 @@
       "You must enter the pincho's price" => "You must enter the pincho's price",
       "You must enter the pincho ingredients" => "You must enter the pincho ingredients",
       "You must enter the establishment name" => "You must enter the establishment name",
-      "Check the form" => "Check the form"
+      "Check the form" => "Check the form",
+      "Code generator" => "Code generator",
+      "Number of codes" => "Number of codes",
+      "Generate" => "Generate"
     ),
     'es' => array(
       'Pintxoak sign in' => 'Ingreso Pintxoak',
@@ -152,6 +155,9 @@
       "You must enter the pincho's price" => "Debes introducir el precio del pincho",
       "You must enter the pincho ingredients" => "Debes introducir los ingredientes del pincho",
       "You must enter the establishment name" => "Debes introducir el nombre del establecimiento",
-      "Check the form" => "Revisa el formulario"
+      "Check the form" => "Revisa el formulario",
+      "Code generator" => "Generador de c&oacute;digos",
+      "Number of codes" => "N&uacute;mero de c&oacute;digos",
+      "Generate" => "Generar"
     )
   );

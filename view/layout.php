@@ -68,7 +68,7 @@
                     <?php }
                       else if($session->getData()['type'] == "establishment"){ ?>
                         <li>
-                            <a href="#"><?= $lang[$userLang]["Codes"] ?></a>
+                            <a href="codeGenerator.php"><?= $lang[$userLang]["Codes"] ?></a>
                         </li>
                         <li>
                             <a href="#"><?= $lang[$userLang]["Profile"] ?></a>
