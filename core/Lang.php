@@ -78,7 +78,8 @@
       "Check the form" => "Check the form",
       "Code generator" => "Code generator",
       "Number of codes" => "Number of codes",
-      "Generate" => "Generate"
+      "Generate" => "Generate",
+      "You must enter a number of codes to generate" => "You must enter a number of codes to generate"
     ),
     'es' => array(
       'Pintxoak sign in' => 'Ingreso Pintxoak',
@@ -158,6 +159,7 @@
       "Check the form" => "Revisa el formulario",
       "Code generator" => "Generador de c&oacute;digos",
       "Number of codes" => "N&uacute;mero de c&oacute;digos",
-      "Generate" => "Generar"
+      "Generate" => "Generar",
+      "You must enter a number of codes to generate" => "Debes introducir un n&uacute;mero de c&oacute;digos a generar"
     )
   );

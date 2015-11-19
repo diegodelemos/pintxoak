@@ -18,7 +18,7 @@
 
   <form method="post" action="../controller/generateCodesController.php">
     <div class="input-group">
-      <input type="number" class="form-control" placeholder="<?= $lang[$userLang]['Number of codes']; ?>" required>
+      <input type="number" name="numberCodes" class="form-control" placeholder="<?= $lang[$userLang]['Number of codes']; ?>" required>
       <span class="input-group-btn">
         <button class="btn btn-default" type="submit"><?= $lang[$userLang]['Generate']; ?></button>
       </span>
