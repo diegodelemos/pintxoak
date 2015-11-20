@@ -1,6 +1,7 @@
 <?php
 
 include_once "User.php";
+include_once "Pincho.php";
 
 class Establishment extends User
 {
@@ -143,6 +144,10 @@ class Establishment extends User
 
   function setPhoto($photo){
     $this->photo = $photo;
+  }
+
+  function getPincho(){
+    return Pincho::getByEstablishment($this);
   }
 
 }

@@ -47,7 +47,7 @@
                         <a href="registerEstablishment.php"><?= $lang[$userLang]["Register establishment"] ?></a>
                     </li>
                     <li>
-                        <a href="#"><?= $lang[$userLang]["Popular vote"] ?></a>
+                        <a href="popularVote.php"><?= $lang[$userLang]["Popular vote"] ?></a>
                     </li>
                   <?php }
                     else {

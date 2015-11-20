@@ -2,6 +2,7 @@
 
 include_once "Relation.php";
 include_once "Establishment.php";
+include_once "Code.php";
 
 class Pincho extends Relation {
 
@@ -174,5 +175,32 @@ class Pincho extends Relation {
 		$this->counter = $counter;
 	}
 
+	static function getByEstablishment($establishment){
+			$connection = Relation::getConnection();
+			$connection->begin_transaction();
+			$sentence = "SELECT * FROM PINCHO WHERE e_username = ?";
+			$statement = $connection->prepare($sentence);
+			$statement->bind_param("s",$establishment->getUsername());
+			$statement->execute();
+			$statement->bind_result($id,$establishmentReference,$name,$photo,$price,
+				$counter);
+			$statement->fetch();
+			$pincho = new Pincho($id,$establishment,$name,$photo,$price,$counter);
+			$connection->close();
+			return $pincho;
+	}
+
+	function getCodes($number){
+		$lastNum = Code::getLastNumber($this);
+		$codes = array();
+		for($i = 0; $i < $number; $i++){
+			$lastNum++;
+			$hash = substr(hash("md5",$this->id.$lastNum),0,10);
+			$code = new Code($this,$lastNum,0,0,$hash);
+			$code->insert();
+			$codes[] = $code;
+		}
+		return $codes;
+	}
 
 }

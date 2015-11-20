@@ -79,7 +79,10 @@
       "Code generator" => "Code generator",
       "Number of codes" => "Number of codes",
       "Generate" => "Generate",
-      "You must enter a number of codes to generate" => "You must enter a number of codes to generate"
+      "You must enter a number of codes to generate" => "You must enter a number of codes to generate",
+      "Enter a code" => "Enter a code",
+      "Vote" => "Vote",
+      'You must enter three codes and select one of them before voting' => 'You must enter three codes and select one of them before voting'
     ),
     'es' => array(
       'Pintxoak sign in' => 'Ingreso Pintxoak',
@@ -160,6 +163,9 @@
       "Code generator" => "Generador de c&oacute;digos",
       "Number of codes" => "N&uacute;mero de c&oacute;digos",
       "Generate" => "Generar",
-      "You must enter a number of codes to generate" => "Debes introducir un n&uacute;mero de c&oacute;digos a generar"
+      "You must enter a number of codes to generate" => "Debes introducir un n&uacute;mero de c&oacute;digos a generar",
+      "Enter a code" => "Introduce un c&oacute;digo",
+      "Vote" => "Votar",
+      'You must enter three codes and select one of them before voting' => 'Debes introducir tres c&oacute;digos y seleccionar uno de ellos antes de votar'
     )
   );

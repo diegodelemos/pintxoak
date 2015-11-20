@@ -62,7 +62,7 @@ CREATE TABLE `CODE` (
        `code_num` INT,
        `used` TINYINT(1),
        `winner` TINYINT(1),
-       `hash` VARCHAR(32),
+       `hash` VARCHAR(10),
        PRIMARY KEY(`p_id`, `code_num`),
        FOREIGN KEY(`p_id`) REFERENCES PINCHO(`p_id`) ON DELETE CASCADE ON UPDATE CASCADE
 );

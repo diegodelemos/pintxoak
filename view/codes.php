@@ -11,20 +11,14 @@
   }
   include_once "../core/Lang.php";
   include_once "../core/Config.php";
+  include_once "../controller/generateCodesController.php";
   $userLang = $session->getData()["lang"];
-  $title = "<h2>".$lang[$userLang]['Code generator']."</h2>";
+  $title = "<h2>".$lang[$userLang]['Codes']."</h2>";
   ob_start();
-  ?>
-
-  <form method="post" action="codes.php">
-    <div class="input-group">
-      <input type="number" min="1" max="100" name="numberCodes" class="form-control" placeholder="<?= $lang[$userLang]['Number of codes']; ?>" required>
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="submit"><?= $lang[$userLang]['Generate']; ?></button>
-      </span>
-    </div><!-- /input-group -->
-  </form>
-  <?php
-
+  echo "<div class='list_group'>";
+  foreach($codes as $code) { ?>
+      <p class="list-group-item"><?= $code->getHash(); ?></p>
+  <?php }
+  echo "</div>";
   $content = ob_get_clean();
   include_once "layout.php";
