@@ -53,7 +53,7 @@
                     else {
                       if($session->getData()['type'] == "organizer"){ ?>
                       <li>
-                          <a href="#"><?= $lang[$userLang]["Requests"] ?></a>
+                          <a href="requestList.php"><?= $lang[$userLang]["Requests"] ?></a>
                       </li>
 
                   <?php }
@@ -114,8 +114,20 @@
       <!-- Footer -->
       <footer>
           <div class="row">
-              <div class="col-lg-12">
+              <div class="col-lg-6">
                   <p><?= sprintf($lang[$userLang]["by %s"], "Eliot Blanco &amp; Diego Rodr&iacute;guez"); ?></p>
+              </div>
+              <div class="form-group col-lg-6">
+                <div for="lang"><?= $lang[$userLang]["Select language"] ?></div>
+                <select class="form-control" id="lang">
+                  <?php
+                    foreach($availableLangs as $language){
+                      $selected = "";
+                      if($language == $userLang)
+                        $selected = " selected";
+                      echo "<option".$selected.">".$language."</option>";
+                    } ?>
+                </select>
               </div>
           </div>
           <!-- /.row -->
@@ -128,6 +140,12 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.md5.js"></script>
+    <script>
+      $("#lang").change(function(){
+        window.location.replace("../controller/languageController.php?lang="+$("#lang option:selected").text());
+      });
+    </script>
 
 </body>
 

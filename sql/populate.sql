@@ -1,13 +1,13 @@
 /* ORGANIZER */
-INSERT INTO USER (username, password) VALUES ("diego", "abc123.");
-INSERT INTO USER (username, password) VALUES ("eliot", "abc123.");
+INSERT INTO USER (username, password) VALUES ("diego", "e8dc8ccd5e5f9e3a54f07350ce8a2d3d");
+INSERT INTO USER (username, password) VALUES ("eliot", "e8dc8ccd5e5f9e3a54f07350ce8a2d3d");
 INSERT INTO ORGANIZER (o_username) VALUES ("diego");
 INSERT INTO ORGANIZER (o_username) VALUES ("eliot");
 
 /* JURY */
-INSERT INTO USER (username, password) VALUES ("juanjurado", "abc123.");
-INSERT INTO USER (username, password) VALUES ("pepejurado", "abc123.");
-INSERT INTO USER (username, password) VALUES ("luisjurado", "abc123.");
+INSERT INTO USER (username, password) VALUES ("juanjurado", "e8dc8ccd5e5f9e3a54f07350ce8a2d3d");
+INSERT INTO USER (username, password) VALUES ("pepejurado", "e8dc8ccd5e5f9e3a54f07350ce8a2d3d");
+INSERT INTO USER (username, password) VALUES ("luisjurado", "e8dc8ccd5e5f9e3a54f07350ce8a2d3d");
 INSERT INTO JUDGE (j_username, j_name, j_profession, j_photo)
        	    	  VALUES ("juanjurado", "Juan Castillo Real",
 		  "Cocinero", "juancastilloreal.png");
@@ -19,14 +19,14 @@ INSERT INTO JUDGE (j_username, j_name, j_profession, j_photo)
 		  "Cocinero", "luisbarriossenderos.png");
 
 /* ESTABLISHMENTS */
-INSERT INTO USER (username, password) VALUES ("opepe", "abc123.");
-INSERT INTO USER (username, password) VALUES ("olagar", "abc123.");
-INSERT INTO USER (username, password) VALUES ("lechu", "abc123.");
-INSERT INTO USER (username, password) VALUES ("meiga", "abc123.");
-INSERT INTO USER (username, password) VALUES ("polar", "abc123.");
-INSERT INTO USER (username, password) VALUES ("conti", "abc123.");
-INSERT INTO USER (username, password) VALUES ("catanga", "abc123.");
-INSERT INTO USER (username, password) VALUES ("xugo", "abc123.");
+INSERT INTO USER (username, password) VALUES ("opepe", "e8dc8ccd5e5f9e3a54f07350ce8a2d3d");
+INSERT INTO USER (username, password) VALUES ("olagar", "e8dc8ccd5e5f9e3a54f07350ce8a2d3d");
+INSERT INTO USER (username, password) VALUES ("lechu", "e8dc8ccd5e5f9e3a54f07350ce8a2d3d");
+INSERT INTO USER (username, password) VALUES ("meiga", "e8dc8ccd5e5f9e3a54f07350ce8a2d3d");
+INSERT INTO USER (username, password) VALUES ("polar", "e8dc8ccd5e5f9e3a54f07350ce8a2d3d");
+INSERT INTO USER (username, password) VALUES ("conti", "e8dc8ccd5e5f9e3a54f07350ce8a2d3d");
+INSERT INTO USER (username, password) VALUES ("catanga", "e8dc8ccd5e5f9e3a54f07350ce8a2d3d");
+INSERT INTO USER (username, password) VALUES ("xugo", "e8dc8ccd5e5f9e3a54f07350ce8a2d3d");
 INSERT INTO ESTABLISHMENT (e_username, address, e_name, e_photo)
        	    		  VALUES ("opepe", "Calle Cardenal nº15",
 			  "O Pepe", "opepe.png");
@@ -64,7 +64,7 @@ INSERT INTO PINCHO (e_username,p_name,p_photo,p_price,counter)
 
 INSERT INTO REQUEST (o_username,address,email,password,e_photo,p_name,p_photo,
   p_price,ingredients,state,e_name) VALUES
-  (null,"calle del lagarto 8","a@a.b","abc123.","farol.jpg","Minipizza",
+  (null,"calle del lagarto 8","a@a.b","e8dc8ccd5e5f9e3a54f07350ce8a2d3d","farol.jpg","Minipizza",
     "farol.png",1.5,"masa agua sal queixo tomate",0,"O Farol"),
-    (null,"rua se&ntilde;or frasco","a@b.b","abc123.","blue.jpg","Cocodrilo",
+    (null,"rua se&ntilde;or frasco","a@b.b","e8dc8ccd5e5f9e3a54f07350ce8a2d3d","blue.jpg","Cocodrilo",
       "blue.jpg",2,"carne de cocodrilo",0,"Blue Lake");

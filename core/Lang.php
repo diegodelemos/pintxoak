@@ -82,7 +82,15 @@
       "You must enter a number of codes to generate" => "You must enter a number of codes to generate",
       "Enter a code" => "Enter a code",
       "Vote" => "Vote",
-      'You must enter three codes and select one of them before voting' => 'You must enter three codes and select one of them before voting'
+      'You must enter three codes and select one of them before voting' => 'You must enter three codes and select one of them before voting',
+      "Vote registered successfuly" => "Vote registered successfuly",
+      "Codes must be from different pinchos" => "Codes must be from different pinchos",
+      "Some of the codes were used before" => "Some of the codes were used before",
+      "Select language" => "Select language",
+      "Are you sure you want to delete this request?" => "Are you sure you want to delete this request?",
+      "Validate request" => "Validate request",
+      "Standardize ingredients" => "Standardize ingredients",
+      "Validate" => "Validate"
     ),
     'es' => array(
       'Pintxoak sign in' => 'Ingreso Pintxoak',
@@ -166,6 +174,14 @@
       "You must enter a number of codes to generate" => "Debes introducir un n&uacute;mero de c&oacute;digos a generar",
       "Enter a code" => "Introduce un c&oacute;digo",
       "Vote" => "Votar",
-      'You must enter three codes and select one of them before voting' => 'Debes introducir tres c&oacute;digos y seleccionar uno de ellos antes de votar'
+      'You must enter three codes and select one of them before voting' => 'Debes introducir tres c&oacute;digos y seleccionar uno de ellos antes de votar',
+      "Vote registered successfuly" => "Voto registrado existosamente",
+      "Codes must be from different pinchos" => "Los c&oacute;digos deben ser de diferentes pinchos",
+      "Some of the codes were used before" => "Algunos de los c&oacute;digos ya han sido usados",
+      "Select language" => "Selecciona un idioma",
+      "Are you sure you want to delete this request?" => "¿Est&aacute;s seguro de que quieres borrar esta petici&oacute;n?",
+      "Validate request" => "Validar petici&oacute;n",
+      "Standardize ingredients" => "Estandarizar ingredientes",
+      "Validate" => "Validar"
     )
   );

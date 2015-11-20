@@ -60,9 +60,8 @@ class Code extends Relation {
 		if(!$this->exists())
 			throw new Exception("Code doesn't exist");
 		$connection = Relation::getConnection();
-		$this->userUpdate($connection);
 		$sentence = "UPDATE CODE SET used = ?, winner = ?, hash = ?
-				WHERE p_id = ?, code_num = ?";
+				WHERE p_id = ? and code_num = ?";
 		$statement = $connection->prepare($sentence);
 		$statement->bind_param("iisii",$this->used,$this->winner,$this->hash,
 			$this->pincho->getId(), $this->codeNum);

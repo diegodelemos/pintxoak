@@ -11,7 +11,7 @@
   $title = "<h2>".$lang[$userLang]['Popular vote']."</h2>";
   ob_start();
   ?>
-<form method="post" class="form-horizontal" action="popularVoteController.php">
+<form method="post" class="form-horizontal" action="../controller/popularVoteController.php">
   <div class="well well-sm" role="alert">
     <?=$lang[$userLang]['You must enter three codes and select one of them before voting'];?>
   </div>
@@ -41,7 +41,7 @@
   </div>
   <div class="form-group">
     <button class="btn btn-default" type="submit"><?= $lang[$userLang]['Vote']; ?></button>
-  </div>s
+  </div>
 </form>
   <?php
 

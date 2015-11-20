@@ -25,7 +25,7 @@
         <input type="password" name="password" id="password" class="form-control" placeholder="<?= $lang[$userLang]['Password'];?>" required>
       </div>
       <div class="form-group">
-        <button class="btn btn-lg btn-primary btn-block" type="submit">
+        <button class="btn btn-lg btn-primary btn-block" onclick="$('#password').val($.md5($('#password').val()))" type="submit">
 		<?= $lang[$userLang]['Sign in'];?>
 	</button>
 </div>
