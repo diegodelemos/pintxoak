@@ -34,7 +34,8 @@
   ob_start();
   ?>
     <div class="col-lg-12">
-      <form class="form">
+      <form class="form" action="../controller/validateEstablishment.php" method="post">
+        <input type="hidden" name="request" value="<?= $request->getId(); ?>"/>
         <div class="thumbnail col-lg-6">
           <img style="max-width: 300px; max-height: 200px;" src="<?= $pinchoDir;?>/<?= $request->getPPhoto();?>">
           <div class="caption">
@@ -70,6 +71,10 @@
                   var option = document.createElement("option");
                   option.text = value;
                   document.getElementById(destiny).add(option);
+                  if(destiny=="selectedIngredients")
+                    document.getElementById("hidden").innerHTML += "<input id='existIng"+value+"' type='hidden' name='existingIngredients[]' value='"+value+"'>";
+                  else
+                    document.getElementById("hidden").removeChild(document.getElementById("existIng"+value));
                 }
                 </script>
               </div>
@@ -86,7 +91,7 @@
                       newIng += "<input class='form-control' type='text' name='newIng[]' value='"+ing+"' aria-label='...'/>";
                       newIng +='<span class="input-group-addon">';
                       newIng += "<label>"+allergenicName+"</label>"
-                      newIng += "<input type='checkbox' name='newIngAllerg[]'/></span>";;
+                      newIng += "<input type='checkbox' name='allergenic"+ing+"'/></span>";;
                       newIng += "<span class='input-group-btn'>";
                       newIng += "<p class='btn btn-default' type='button' onclick='removeNewIngredient(\"ingredient"+ing+"\");'><i class='glyphicon glyphicon-minus'></i></p>";
                       newIng += "</span></p></div>";
@@ -117,11 +122,13 @@
           <p><b><?= $lang[$userLang]["Establishment address"];?>:</b> <?= $request->getAddress();?></p>
           <p><b><?= $lang[$userLang]["E-mail"];?>:</b> <?= $request->getEmail();?></p>
         </div>
+        <div id="hidden">
+        </div>
+        <div class="col-lg-12">
+          <button type="submit" class="btn btn-success" role="button"><?= $lang[$userLang]["Validate"]; ?></button>
+        <div>
       </form>
     </div>
-    <p>
-      <a href="../view/acceptRequest.phpid=<?= $request->getId();?>" class="btn btn-success" role="button"><?= $lang[$userLang]["Validate"]; ?></a>
-    </p>
   <?php
 
   $content = ob_get_clean();

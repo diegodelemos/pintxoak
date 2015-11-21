@@ -1,7 +1,5 @@
 <?php
   include_once "../model/Pincho.php";
-  include_once "../core/Session.php":
-  $session = new Session();
 
   try{
     $pinchos = Pincho::getAll();
