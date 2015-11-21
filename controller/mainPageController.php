@@ -1,5 +1,8 @@
 <?php
   include_once "../model/Pincho.php";
+  include_once "../core/Session.php":
+  $session = new Session();
+
   try{
     $pinchos = Pincho::getAll();
     foreach ($pinchos as $pincho) {
@@ -7,5 +10,5 @@
     }
   }
   catch(Exception $e){
-    echo $e->getMessage();
+    $session->putFlashMessage("error",$e->getMessage());
   }

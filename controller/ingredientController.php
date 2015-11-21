@@ -1,10 +1,9 @@
 <?php
-  include_once "../model/Request.php";
+  include_once "../model/Ingredient.php";
   include_once "../core/Session.php";
   try{
-    $requests = Request::getAll();
+    $ingredients = Ingredient::getAll();
   }
   catch(Exception $e){
     $session->putFlashMessage("error",$e->getMessage());
-    header("Location: ..");
   }

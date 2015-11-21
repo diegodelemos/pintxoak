@@ -90,7 +90,12 @@
       "Are you sure you want to delete this request?" => "Are you sure you want to delete this request?",
       "Validate request" => "Validate request",
       "Standardize ingredients" => "Standardize ingredients",
-      "Validate" => "Validate"
+      "Validate" => "Validate",
+      "Choose from existing ingredients" => "Choose from existing ingredients",
+      "Allergenic" => "Allergenic",
+      "Add new ingredient" => "Add new ingredient",
+      "Available ingredients" => "Available ingredients",
+      "Selected ingredients" => "Selected ingredients"
     ),
     'es' => array(
       'Pintxoak sign in' => 'Ingreso Pintxoak',
@@ -182,6 +187,11 @@
       "Are you sure you want to delete this request?" => "¿Est&aacute;s seguro de que quieres borrar esta petici&oacute;n?",
       "Validate request" => "Validar petici&oacute;n",
       "Standardize ingredients" => "Estandarizar ingredientes",
-      "Validate" => "Validar"
+      "Validate" => "Validar",
+      "Choose from existing ingredients" => "Elegir entre los ingredientes existentes",
+      "Allergenic" => "Al&eacute;rgeno",
+      "Add new ingredient" => "A&ntilde;adir nuevo ingrediente",
+      "Available ingredients" => "Ingredientes disponibles",
+      "Selected ingredients" => "Ingredientes seleccionados"
     )
   );

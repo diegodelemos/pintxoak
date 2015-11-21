@@ -66,5 +66,8 @@ INSERT INTO REQUEST (o_username,address,email,password,e_photo,p_name,p_photo,
   p_price,ingredients,state,e_name) VALUES
   (null,"calle del lagarto 8","a@a.b","e8dc8ccd5e5f9e3a54f07350ce8a2d3d","farol.jpg","Minipizza",
     "farol.png",1.5,"masa agua sal queixo tomate",0,"O Farol"),
-    (null,"rua se&ntilde;or frasco","a@b.b","e8dc8ccd5e5f9e3a54f07350ce8a2d3d","blue.jpg","Cocodrilo",
-      "blue.jpg",2,"carne de cocodrilo",0,"Blue Lake");
+  (null,"rua se&ntilde;or frasco","a@b.b","e8dc8ccd5e5f9e3a54f07350ce8a2d3d","blue.jpg","Cocodrilo",
+    "blue.jpg",2,"carne de cocodrilo",0,"Blue Lake");
+
+
+INSERT INTO INGREDIENT VALUES ("chocolate",0),("marisco",1),("jam&oacute;n",0);
