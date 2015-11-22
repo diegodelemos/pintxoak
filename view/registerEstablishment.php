@@ -75,7 +75,7 @@
 
       </div>
       <div class="form-group">
-        <button class="btn btn-lg btn-primary btn-block" type="submit">
+        <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="$('#password').val($.md5($('#password').val())); $('#r_password').val($.md5($('#r_password').val()));">
 		<?= $lang[$userLang]['Sign up'];?>
 	</button></div>
       </form>

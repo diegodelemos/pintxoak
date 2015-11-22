@@ -26,7 +26,7 @@ class Pincho extends Relation {
 	function insert() {
 		if($this->exists())
 			throw new Exception("Pincho already exists");
-		if(establishment.exists()) {
+		if($this->establishment->exists()) {
 			$connection = Relation::getConnection();
 			$sentence = "INSERT INTO PINCHO (e_username,p_name,p_photo,p_price,counter)
 				VALUES (?, ?, ?, ?, ?)";
@@ -37,6 +37,7 @@ class Pincho extends Relation {
 			if($statement->affected_rows != 1){
 				throw new Exception("Pincho could not be created");
 			}
+			$this->id = $connection->insert_id;
 			$connection->close();
 		} else {
 			throw new Exception("Pincho could not be created");
@@ -201,6 +202,19 @@ class Pincho extends Relation {
 			$codes[] = $code;
 		}
 		return $codes;
+	}
+
+	function insertIngredient($ingredient){
+			$connection = Relation::getConnection();
+			$connection->begin_transaction();
+			$sentence = "INSERT INTO CONTAINS VALUES (?,?)";
+			$statement = $connection->prepare($sentence);
+			$statement->bind_param("is",$this->getId(),$ingredient->getName());
+			$statement->execute();
+			if($statement->affected_rows != 1){
+				throw new Exception("Ingredient could not be inserted");
+			}
+			$connection->close();
 	}
 
 }

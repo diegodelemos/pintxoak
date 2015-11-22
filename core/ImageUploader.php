@@ -1,5 +1,5 @@
 <?php
-
+  include_once "Config.php";
 
 function uploadImage($image, $type){
     $establishment_target_dir = "../photos/establishment/";
@@ -44,7 +44,7 @@ function isValidImage($image, $target_file){
 	}
 
 	// Check file size
-	if ($image["size"] > 500000) {
+	if ($image["size"] > $maxPhotoSize) {
 	    throw new Exception("File too large");
 	}
 	// Allow certain file formats

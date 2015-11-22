@@ -31,7 +31,7 @@ class Establishment extends User
     if($statement->affected_rows == 1){
       $sentence = "INSERT INTO ESTABLISHMENT VALUES (?,?,?,?)";
       $statement = $connection->prepare($sentence);
-      $statement->bind_param("s",$this->username, $this->address, $this->name,
+      $statement->bind_param("ssss",$this->username, $this->address, $this->name,
         $this->photo);
       $statement->execute();
       if($statement->affected_rows == 1){

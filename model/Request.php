@@ -42,10 +42,10 @@ class Request extends Relation {
       throw new Exception("Request already exists");
     $connection = Relation::getConnection();
     $sentence = "INSERT INTO REQUEST (address,email,password,
-      e_photo,p_name,p_photo,p_price,ingredients,state) VALUES (?, ?, ?, ?, ?,
+      e_photo,p_name,p_photo,p_price,ingredients,state,e_name) VALUES (?, ?, ?, ?, ?,
       ?, ?, ?, ?, ?)";
     $statement = $connection->prepare($sentence);
-    $statement->bind_param("ssssssdsi",
+    $statement->bind_param("ssssssdsis",
       $this->address,$this->email,$this->password,$this->ePhoto,
       $this->pName,$this->pPhoto,$this->pPrice,$this->ingredients,$this->state,
       $this->eName);
@@ -110,9 +110,9 @@ class Request extends Relation {
     $statement = $connection->prepare($sentence);
     $statement->bind_param("i",$this->id);
     $statement->execute();
-    $statement->bind_result($nothing,$this->organizer,$this->address,
+    $statement->bind_result($nothing,$organizer,$this->address,
       $this->email,$this->password,$this->ePhoto,$this->pName,
-      $this->pPhoto,$this->pPrice,$this->state,$this->eName);
+      $this->pPhoto,$this->pPrice,$this->ingredients,$this->state,$this->eName);
     $statement->fetch();
     $this->organizer = new Organizer($organizer);
     $connection->close();

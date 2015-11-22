@@ -95,7 +95,11 @@
       "Allergenic" => "Allergenic",
       "Add new ingredient" => "Add new ingredient",
       "Available ingredients" => "Available ingredients",
-      "Selected ingredients" => "Selected ingredients"
+      "Selected ingredients" => "Selected ingredients",
+      "Ingredient could not be inserted" => "Ingredient could not be inserted",
+      "Request has been accepted correctly" => "Request has been accepted correctly",
+      "Request rejected correctly" => "Request rejected correctly",
+      "Request successfuly created" => "Request successfuly created"
     ),
     'es' => array(
       'Pintxoak sign in' => 'Ingreso Pintxoak',
@@ -192,6 +196,10 @@
       "Allergenic" => "Al&eacute;rgeno",
       "Add new ingredient" => "A&ntilde;adir nuevo ingrediente",
       "Available ingredients" => "Ingredientes disponibles",
-      "Selected ingredients" => "Ingredientes seleccionados"
+      "Selected ingredients" => "Ingredientes seleccionados",
+      "Ingredient could not be inserted" => "El ingrediente no se pudo insertar",
+      "Request has been accepted correctly" => "La petici&oacute;n ha sido aceptada correctamente",
+      "Request rejected correctly" => "La petici&oacute;n ha sido rechazada correctamente",
+      "Request successfuly created" => "La petici&oacute;n ha sido creada correctamente"
     )
   );
