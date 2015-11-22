@@ -42,8 +42,10 @@
                 $pincho->insertIngredient($newingredient);
               }
             }
-            // as all the process has been completed correctly, we proceed to delete the request
-            $request->delete();
+            // as all the process has been completed correctly, we proceed to set the request as completed
+            $request->setState(true);
+            $request->setOrganizer(new Organizer($session->getData()["userName"]));
+            $request->update();
             $session->putFlashMessage("success","Request has been accepted correctly");
             header("Location: ../view/requestList.php");
           } catch(Exception $e){

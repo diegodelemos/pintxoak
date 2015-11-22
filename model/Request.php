@@ -88,9 +88,9 @@ class Request extends Relation {
       password = ?, e_photo = ?, p_name = ?, p_photo = ?, p_price = ?,
       ingredients = ?, state = ?, e_name = ? WHERE r_id = ?";
     $statement = $connection->prepare($sentence);
-    $statement->bind_param("ssssii",$this->organizer->getName(),$this->address,
+    $statement->bind_param("sssssssdsisi",$this->organizer->getUsername(),$this->address,
       $this->email,$this->password,$this->e_photo,$this->pName,$this->pPhoto,
-      $this->pPrice,$this->ingredients,$this->state,$this->id,$this->eName);
+      $this->pPrice,$this->ingredients,$this->state,$this->eName,$this->id);
     $statement->execute();
     if($statement->affected_rows != 1){
       $connection->close();
@@ -246,4 +246,20 @@ class Request extends Relation {
     $this->eName = $eName;
   }
 
+  static function getPending()
+  {
+    $connection = Relation::getConnection();
+    $sentence = "SELECT * FROM REQUEST WHERE STATE = 0";
+    $statement = $connection->prepare($sentence);
+    $statement->execute();
+    $statement->bind_result($id,$organizer,$address,$email,$password,$ePhoto,$pName,
+      $pPhoto,$pPrice,$ingredients,$state,$eName);
+    $requests=array();
+    while($statement->fetch()){
+      $requests[] = new Request($id,new Organizer($organizer),$address,$email,
+        $password,$ePhoto,$pName,$pPhoto,$pPrice,$ingredients,$state,$eName);
+    }
+    $connection->close();
+    return $requests;
+  }
 }

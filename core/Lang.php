@@ -113,7 +113,7 @@
       'Establishment address' => 'Direcci&oacute;n del establecimiento',
       'Establishment photo' => 'Foto del establecimiento',
       'Pincho name' => 'Nombre del pincho',
-      'Pincho photo' => 'Pincho photo',
+      'Pincho photo' => 'Foto del pincho',
       'Repeat your password' => 'Repite tu contrase&ntilde;a',
       'Pincho price' => 'Precio del pincho',
       'Pincho ingredients' => 'Ingredientes del pincho',
