@@ -1,7 +1,6 @@
 <?php
-  include_once "Config.php";
 
-function uploadImage($image, $type){
+function uploadImage($image, $type, $maxPhotoSize){
     $establishment_target_dir = "../photos/establishment/";
     $pincho_target_dir = "../photos/pincho/";
     if($type == "pincho")
@@ -13,7 +12,7 @@ function uploadImage($image, $type){
 
     $target_file = generateTargetFile($target_dir, $image['name']);
 
-    isValidImage($image, $target_file);
+    isValidImage($image, $target_file, $maxPhotoSize);
 
 
     if (!move_uploaded_file($image["tmp_name"], $target_file)) {
@@ -34,7 +33,7 @@ function generateTargetFile($target_dir, $name) {
 
 
 
-function isValidImage($image, $target_file){
+function isValidImage($image, $target_file, $maxPhotoSize){
 	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 	// Check if image file is a actual image or fake image
 

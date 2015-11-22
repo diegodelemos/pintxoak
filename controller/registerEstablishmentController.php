@@ -3,6 +3,7 @@ include_once "../core/ImageUploader.php";
 include_once "../model/Organizer.php";
 include_once "../model/Request.php";
 include_once "../core/Session.php";
+include_once "../core/Config.php";
 
 try{
 	$session = new Session();
@@ -10,8 +11,8 @@ try{
 		throw new Exception("You are already registered");
 	if(!formIsCorrect())
 		throw new Exception("Check the form");
-	$ePhoto = uploadImage($_FILES['establishment_photo'], "establishment");
-	$pPhoto = uploadImage($_FILES['pincho_photo'], "pincho");
+	$ePhoto = uploadImage($_FILES['establishment_photo'], "establishment", $maxPhotoSize);
+	$pPhoto = uploadImage($_FILES['pincho_photo'], "pincho", $maxPhotoSize);
 
 	$request = new Request(null,null, $_POST["address"], $_POST["userName"],
 				$_POST["password"], $ePhoto, $_POST["pincho_name"],
