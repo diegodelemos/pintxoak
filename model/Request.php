@@ -89,7 +89,7 @@ class Request extends Relation {
       ingredients = ?, state = ?, e_name = ? WHERE r_id = ?";
     $statement = $connection->prepare($sentence);
     $statement->bind_param("sssssssdsisi",$this->organizer->getUsername(),$this->address,
-      $this->email,$this->password,$this->e_photo,$this->pName,$this->pPhoto,
+      $this->email,$this->password,$this->ePhoto,$this->pName,$this->pPhoto,
       $this->pPrice,$this->ingredients,$this->state,$this->eName,$this->id);
     $statement->execute();
     if($statement->affected_rows != 1){

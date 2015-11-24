@@ -178,7 +178,6 @@ class Pincho extends Relation {
 
 	static function getByEstablishment($establishment){
 			$connection = Relation::getConnection();
-			$connection->begin_transaction();
 			$sentence = "SELECT * FROM PINCHO WHERE e_username = ?";
 			$statement = $connection->prepare($sentence);
 			$statement->bind_param("s",$establishment->getUsername());
@@ -206,7 +205,6 @@ class Pincho extends Relation {
 
 	function insertIngredient($ingredient){
 			$connection = Relation::getConnection();
-			$connection->begin_transaction();
 			$sentence = "INSERT INTO CONTAINS VALUES (?,?)";
 			$statement = $connection->prepare($sentence);
 			$statement->bind_param("is",$this->getId(),$ingredient->getName());

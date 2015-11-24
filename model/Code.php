@@ -161,7 +161,6 @@ class Code extends Relation {
 
 	static function getLastNumber($pincho){
 		$connection = Relation::getConnection();
-		$connection->begin_transaction();
 		$sentence = "SELECT max(code_num) FROM CODE WHERE p_id = ?";
 		$statement = $connection->prepare($sentence);
 		$statement->bind_param("i",$pincho->getId());
@@ -176,7 +175,6 @@ class Code extends Relation {
 
 	function populateByHash(){
 		$connection = Relation::getConnection();
-		$connection->begin_transaction();
 		$sentence = "SELECT * FROM CODE WHERE hash = ?";
 		$statement = $connection->prepare($sentence);
 		$statement->bind_param("s",$this->hash);

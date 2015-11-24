@@ -59,10 +59,13 @@
           <?php
             foreach ($pinchos as $pincho) {
               $name = $pincho->getEstablishment()->getName(); ?>
-            <div class="col-sm-4">
-                <img class="img-circle img-responsive img-center" style="height: 300px;" src=<?= $pinchoDir.$pincho->getPhoto(); ?> alt="">
-                <h2><?= $pincho->getName(); ?></h2>
-                <p><?= sprintf($lang[$userLang]["by %s"],$name); ?></p>
+            <div class="col-sm-4" style="margin-bottom:30px">
+                <img class="img-thumbnail img-responsive img-center" style="height: 300px;width:500px" src=<?= $pinchoDir.$pincho->getPhoto(); ?> alt="">
+                <div class="carousel-caption"
+				style="max-width: 550px;padding: 0 20px;margin:0 auto;margin-top: 200px;text-align:center;background-color:black;opacity:0.5">
+			<h4><?= $pincho->getName(); ?></h4>
+                	<p><?= sprintf($lang[$userLang]["by %s"],$name); ?></p>
+		</div>
             </div>
 
             <?php } ?>
