@@ -1,8 +1,9 @@
 <?php
 
 function uploadImage($image, $type, $maxPhotoSize){
-    $establishment_target_dir = "../photos/establishment/";
-    $pincho_target_dir = "../photos/pincho/";
+    include("Config.php");
+    $establishment_target_dir = $establishmentDir;
+    $pincho_target_dir = $pinchoDir;
     if($type == "pincho")
 	$target_dir = $pincho_target_dir;
     else if($type == "establishment")
@@ -19,6 +20,19 @@ function uploadImage($image, $type, $maxPhotoSize){
 	throw new Exception("Error uploading file");
     }
     return end(explode("/",$target_file));
+}
+
+function deleteImage($image, $type){
+  include("Config.php");
+  if($type = "pincho")
+    $target_dir = $pinchoDir;
+  else if($type = "establishment")
+    $target_dir = $establishmentDir;
+  else
+    throw new Exception("Wrong image type");
+  $target_file = $target_dir."/".$image['name'];
+  unlink($target_file);
+
 }
 
 function generateTargetFile($target_dir, $name) {

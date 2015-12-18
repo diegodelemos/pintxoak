@@ -38,6 +38,7 @@ abstract class User extends Relation
 
   // Base user update
   protected function userUpdate($connection){
+    $return = false;
     if($this->username != $this->newUsername){
       $sentence = "UPDATE USER SET username = ? WHERE username = ?";
       $statement = $connection->prepare($sentence);
@@ -50,6 +51,7 @@ abstract class User extends Relation
       }
       else{
         $this->username = $this->newUsername;
+        $return = true;
       }
     }
     if($this->password != null){
@@ -62,7 +64,10 @@ abstract class User extends Relation
         $connection->close();
         throw new Exception("User could not be updated");
       }
+      else
+        $return = true;
     }
+    return $return;
   }
 
 
@@ -78,7 +83,14 @@ abstract class User extends Relation
 
   function getPassword()
   {
-    return $this->password;
+    $connection = $this->getConnection();
+    $sentence = "SELECT password FROM USER WHERE username = ?";
+    $statement = $connection->prepare($sentence);
+    $statement->bind_param("s",$this->username);
+    $statement->execute();
+    $statement->bind_result($password);
+    $statement->fetch();
+    return $password;
   }
 
   function setPassword($password)

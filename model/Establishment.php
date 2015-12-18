@@ -58,14 +58,14 @@ class Establishment extends User
       throw new Exception("User doesn't exist");
     $connection = Relation::getConnection();
     $connection->begin_transaction();
-    $this->userUpdate($connection);
+    $updated = $this->userUpdate($connection);
     $sentence = "UPDATE ESTABLISHMENT SET e_name = ?, address = ?, e_photo = ?
       WHERE e_username = ?";
     $statement = $connection->prepare($sentence);
     $statement->bind_param("ssss",$this->name,$this->address,$this->photo,
       $this->username);
     $statement->execute();
-    if($statement->affected_rows != 1){
+    if(!$updated && $statement->affected_rows != 1){
       $connection->rollback();
       $connection->close();
       throw new Exception("User could not be updated");

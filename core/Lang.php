@@ -110,7 +110,10 @@
       "Note: if you don't want to change your photo, please, let this field empty before submiting the form" => "Note: if you don't want to change your photo, please, let this field empty before submiting the form",
       "Generate Leaflet" => "Generate Leaflet",
       "Start Date" => "Start date",
-      "End Date" => "End date"
+      "End Date" => "End date",
+      "The password you entered is not the same as the old one" => "The password you entered is not the same as the old one",
+      "The new password and the repeated are not the same" => "The new password and the repeated are not the same",
+      "Your data has been successfuly modified" => "Your data has been successfuly modified"
     ),
     'es' => array(
       'Pintxoak sign in' => 'Ingreso Pintxoak',
@@ -222,6 +225,9 @@
       "Note: if you don't want to change your photo, please, let this field empty before submiting the form" => "Nota: si no quieres cambiar la foto, deja este campo vac&iacute;o antes de enviar el formulario",
       "Generate Leaflet" => "Generar folleto",
       "Start Date" => "Fecha de inicio",
-      "End Date" => "Fecha de fin"
+      "End Date" => "Fecha de fin",
+      "The password you entered is not the same as the old one" => "La contrase&ntilde;a que has introducido no es la misma que la actual",
+      "The new password and the repeated are not the same" => "La nueva contrase&ntilde;a y la repetida no son iguales",
+      "Your data has been successfuly modified" => "Tus datos han sido correctamente modificados"
     )
   );

@@ -15,7 +15,7 @@
   $title = "<h2>".$lang[$userLang]['Modify establishment']."</h2>";
   ob_start();
   ?>
-    <form role="form" action="../controller/modifyEstablishmentController.php" enctype="multipart/form-data">
+    <form role="form" action="../controller/modifyEstablishmentController.php" enctype="multipart/form-data" method="post">
      <div class="form-group">
        <label for="ename"><?= $lang[$userLang]['Establishment name']; ?></label>
        <input type="text" class="form-control" id="ename" name="ename" value="<?= $session->getData()['name'];?>">
@@ -37,7 +37,7 @@
      <div class="text-warning"><?= $lang[$userLang]["Note: if you don't want to change your password, please, let the password fields empty before submiting the form"]; ?></div>
      <div class="form-group">
        <label for="oldPass"><?= $lang[$userLang]["Old password"]; ?></label>
-       <input type="password" class="form-control" id="olpPass" name="oldPass">
+       <input type="password" class="form-control" id="oldPass" name="oldPass">
      </div>
      <div class="form-group">
        <label for="newPass"><?= $lang[$userLang]["New password"]; ?></label>
@@ -47,7 +47,7 @@
        <label for="repNewPass"><?= $lang[$userLang]["Repeat new password"]; ?></label>
        <input type="password" class="form-control" id="repNewPass" name="repNewPass">
      </div>
-     <button type="submit" class="btn btn-default"><?= $lang[$userLang]['Save']; ?></button>
+     <button type="submit" class="btn btn-default" onclick="$('#oldPass').val($.md5($('#oldPass').val())); $('#newPass').val($.md5($('#newPass').val())); $('#repNewPass').val($.md5($('#repNewPass').val()));"><?= $lang[$userLang]['Save']; ?></button>
     </form>
   <?php
 
