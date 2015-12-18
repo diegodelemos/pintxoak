@@ -55,6 +55,9 @@
                       <li>
                           <a href="requestList.php"><?= $lang[$userLang]["Requests"] ?></a>
                       </li>
+	              <li>
+			  <a href="leaflet.php"><?= $lang[$userLang]["Generate Leaflet"]?></a>
+                      </li>
 
                   <?php }
                     else if($session->getData()['type'] == "judge"){ ?>
