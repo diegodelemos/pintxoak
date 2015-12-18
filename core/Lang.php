@@ -107,7 +107,10 @@
       "Note: if you don't want to change your password, please, let the password fields empty before submiting the form" => "Note: if you don't want to change your password, please, let the password fields empty before submiting the form",
       "Save" => "Save",
       "Login" => "Login",
-      "Note: if you don't want to change your photo, please, let this field empty before submiting the form" => "Note: if you don't want to change your photo, please, let this field empty before submiting the form"
+      "Note: if you don't want to change your photo, please, let this field empty before submiting the form" => "Note: if you don't want to change your photo, please, let this field empty before submiting the form",
+      "Generate Leaflet" => "Generate Leaflet",
+      "Start Date" => "Start date",
+      "End Date" => "End date"
     ),
     'es' => array(
       'Pintxoak sign in' => 'Ingreso Pintxoak',
@@ -216,6 +219,9 @@
       "Note: if you don't want to change your password, please, let the password fields empty before submiting the form" => "Nota: si no quieres cambiar la contrase&ntilde;a, por favor, deja los campos de contrase&ntilde;a vac&iacute;os antes de enviar el formulario",
       "Save" => "Guardar",
       "Login" => "Login",
-      "Note: if you don't want to change your photo, please, let this field empty before submiting the form" => "Nota: si no quieres cambiar la foto, deja este campo vac&iacute;o antes de enviar el formulario"
+      "Note: if you don't want to change your photo, please, let this field empty before submiting the form" => "Nota: si no quieres cambiar la foto, deja este campo vac&iacute;o antes de enviar el formulario",
+      "Generate Leaflet" => "Generar folleto",
+      "Start Date" => "Fecha de inicio",
+      "End Date" => "Fecha de fin"
     )
   );
