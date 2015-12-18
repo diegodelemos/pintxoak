@@ -37,7 +37,7 @@
       <form class="form" action="../controller/validateEstablishment.php" method="post">
         <input type="hidden" name="request" value="<?= $request->getId(); ?>"/>
         <div class="thumbnail col-lg-6">
-          <img style="max-width: 300px; max-height: 200px;" src="<?= $pinchoDir;?>/<?= $request->getPPhoto();?>">
+          <img style="max-width: 300px; max-height: 200px;" src="<?= $pinchoDir;?><?= $request->getPPhoto();?>">
           <div class="caption">
             <h3><?= $request->getPName(); ?></h3>
             <p><b><?= $lang[$userLang]["Pincho price"];?>:</b> <?= $request->getPPrice();?> €</p>

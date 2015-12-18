@@ -99,7 +99,15 @@
       "Ingredient could not be inserted" => "Ingredient could not be inserted",
       "Request has been accepted correctly" => "Request has been accepted correctly",
       "Request rejected correctly" => "Request rejected correctly",
-      "Request successfuly created" => "Request successfuly created"
+      "Request successfuly created" => "Request successfuly created",
+      "Modify establishment" => "Modify establishment",
+      "Old password" => "Old password",
+      "New password" => "New password",
+      "Repeat new password" => "Repeat new password",
+      "Note: if you don't want to change your password, please, let the password fields empty before submiting the form" => "Note: if you don't want to change your password, please, let the password fields empty before submiting the form",
+      "Save" => "Save",
+      "Login" => "Login",
+      "Note: if you don't want to change your photo, please, let this field empty before submiting the form" => "Note: if you don't want to change your photo, please, let this field empty before submiting the form"
     ),
     'es' => array(
       'Pintxoak sign in' => 'Ingreso Pintxoak',
@@ -200,6 +208,14 @@
       "Ingredient could not be inserted" => "El ingrediente no se pudo insertar",
       "Request has been accepted correctly" => "La petici&oacute;n ha sido aceptada correctamente",
       "Request rejected correctly" => "La petici&oacute;n ha sido rechazada correctamente",
-      "Request successfuly created" => "La petici&oacute;n ha sido creada correctamente"
+      "Request successfuly created" => "La petici&oacute;n ha sido creada correctamente",
+      "Modify establishment" => "Modificar establecimiento",
+      "Old password" => "Contrase&ntilde;a actual",
+      "New password" => "Nueva contrase&ntilde;a",
+      "Repeat new password" => "Repetir nueva contrase&ntilde;a",
+      "Note: if you don't want to change your password, please, let the password fields empty before submiting the form" => "Nota: si no quieres cambiar la contrase&ntilde;a, por favor, deja los campos de contrase&ntilde;a vac&iacute;os antes de enviar el formulario",
+      "Save" => "Guardar",
+      "Login" => "Login",
+      "Note: if you don't want to change your photo, please, let this field empty before submiting the form" => "Nota: si no quieres cambiar la foto, deja este campo vac&iacute;o antes de enviar el formulario"
     )
   );

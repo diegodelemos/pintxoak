@@ -71,7 +71,7 @@
                             <a href="codeGenerator.php"><?= $lang[$userLang]["Codes"] ?></a>
                         </li>
                         <li>
-                            <a href="#"><?= $lang[$userLang]["Profile"] ?></a>
+                            <a href="modifyEstablishment.php"><?= $lang[$userLang]["Profile"] ?></a>
                         </li>
 
                     <?php }
