@@ -9,11 +9,11 @@
 
     <!-- Image Background Page Header -->
     <!-- Note: The background image is set within the business-casual.css file. -->
-    <header class="business-header" style="background-image: url('<?= $pageDir;?>main.jpeg')">
+    <header class="business-header" style="background-image: url('<?= $pageDir.$contest->getLogo();?>')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="tagline">Pintxoak</h1>
+                    <h1 class="tagline"><?=$contest->getName()?></h1>
                 </div>
             </div>
         </div>

@@ -11,9 +11,8 @@ class Contest {
 	private $logo;
 	private $file;
 
-	function __construct() {
-		include_once "../core/Config.php";
-		$this->file = $coreDir.$contestFile;
+	function __construct($file) {
+		$this->file = $file;
 		$contestInfo = json_decode(file_get_contents($this->file), TRUE);
 		$this->name=$contestInfo["name"];
 		$this->startDate=$contestInfo["startDate"];
@@ -31,7 +30,7 @@ class Contest {
 	}
 
 	function getEndDate(){
-		return $this->EndDate;
+		return $this->endDate;
 	}
 
 	function getLogo(){
