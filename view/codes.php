@@ -20,5 +20,6 @@
       <p class="list-group-item"><?= $code->getHash(); ?></p>
   <?php }
   echo "</div>";
+  echo "<button onclick='window.print()' class='btn btn-default'><i class='glyphicon glyphicon-print'></i></button>";
   $content = ob_get_clean();
   include_once "layout.php";

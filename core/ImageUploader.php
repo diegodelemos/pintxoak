@@ -4,10 +4,13 @@ function uploadImage($image, $type, $maxPhotoSize){
     include("Config.php");
     $establishment_target_dir = $establishmentDir;
     $pincho_target_dir = $pinchoDir;
+    $page_target_dir = $pageDir;
     if($type == "pincho")
 	$target_dir = $pincho_target_dir;
     else if($type == "establishment")
 	$target_dir = $establishment_target_dir;
+    else if($type = "page")
+    $target_dir = $page_target_dir;
     else
 	throw new Exception("Wrong image type");
 
@@ -28,6 +31,8 @@ function deleteImage($image, $type){
     $target_dir = $pinchoDir;
   else if($type = "establishment")
     $target_dir = $establishmentDir;
+      else if($type = "page")
+      $target_dir = $page_target_dir;
   else
     throw new Exception("Wrong image type");
   $target_file = $target_dir."/".$image['name'];

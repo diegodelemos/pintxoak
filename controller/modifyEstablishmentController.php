@@ -37,13 +37,13 @@ try {
             $establishment->setPhoto($newImage);
           }
           $establishment->update();
+          deleteImage($oldImage,"establishment");
         } catch (Exception $e){
           $establishment->setPhoto($oldImage);
           if($newImage != null)
             deleteImage($newImage,"establishment");
           throw $e;
         }
-        deleteImage($oldImage,"establishment");
         $_SESSION["userName"] = $establishment->getUsername();
         $_SESSION["name"] = $establishment->getName();
         $_SESSION["address"] = $establishment->getAddress();

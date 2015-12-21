@@ -1,3 +1,9 @@
+<?php
+  include_once "../model/Contest.php";
+  include_once "../core/Config.php";
+  if(!isset($contest))
+    $contest = new Contest($coreDir.$contestFile);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,7 +39,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href=".">Pintxoak</a>
+                <a class="navbar-brand" href="."><?= $contest->getName(); ?></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -55,8 +61,11 @@
                       <li>
                           <a href="requestList.php"><?= $lang[$userLang]["Requests"] ?></a>
                       </li>
-	              <li>
-			  <a href="leaflet.php"><?= $lang[$userLang]["Generate Leaflet"]?></a>
+	                    <li>
+			                    <a href="leaflet.php"><?= $lang[$userLang]["Generate Leaflet"]?></a>
+                      </li>
+	                    <li>
+			                    <a href="modifyContest.php"><?= $lang[$userLang]["Modify contest"]?></a>
                       </li>
 
                   <?php }
@@ -153,4 +162,3 @@
 </body>
 
 </html>
-

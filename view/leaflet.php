@@ -18,10 +18,14 @@
   ?>
 
 	<div class="jumbotron">
-          <h1><?=$contest->getName(); ?></h1>
-	  <p><?= $lang[$userLang]['Start Date'].": ".$contest->getStartDate()?></p>
-	  <p><?= $lang[$userLang]['End Date'].": ".$contest->getEndDate()?></p>
+  <div>
+   <h1><?=$contest->getName(); ?></h1>
+   <p><?= $lang[$userLang]['Start Date'].": ".$contest->getStartDate()?></p>
+   <p><?= $lang[$userLang]['End Date'].": ".$contest->getEndDate()?></p>
+  </div>
+    <img class="img-thumbnail img-responsive img-center" src="<?= $pageDir; ?>/<?= $contest->getLogo(); ?>" />
 	</div>
+  <button onclick="window.print()" class="btn btn-default"><i class="glyphicon glyphicon-print"></i></button>
 
   <?php
 

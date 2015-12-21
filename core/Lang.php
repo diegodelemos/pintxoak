@@ -113,7 +113,11 @@
       "End Date" => "End date",
       "The password you entered is not the same as the old one" => "The password you entered is not the same as the old one",
       "The new password and the repeated are not the same" => "The new password and the repeated are not the same",
-      "Your data has been successfuly modified" => "Your data has been successfuly modified"
+      "Your data has been successfuly modified" => "Your data has been successfuly modified",
+      "Modify contest" => "Modify contest",
+      "Contest name" => "Contest name",
+      "Contest photo" => "Contest photo",
+      "The contest data has been successfuly modified" => "The contest data has been successfuly modified"
     ),
     'es' => array(
       'Pintxoak sign in' => 'Ingreso Pintxoak',
@@ -228,6 +232,10 @@
       "End Date" => "Fecha de fin",
       "The password you entered is not the same as the old one" => "La contrase&ntilde;a que has introducido no es la misma que la actual",
       "The new password and the repeated are not the same" => "La nueva contrase&ntilde;a y la repetida no son iguales",
-      "Your data has been successfuly modified" => "Tus datos han sido correctamente modificados"
+      "Your data has been successfuly modified" => "Tus datos han sido correctamente modificados",
+      "Modify contest" => "Modificar concurso",
+      "Contest name" => "Nombre del concurso",
+      "Contest photo" => "Foto del concurso",
+      "The contest data has been successfuly modified" => "Los datos del concurso han sido correctamente modificados"
     )
   );
